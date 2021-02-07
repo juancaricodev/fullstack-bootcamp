@@ -15,6 +15,7 @@ const App = () => {
   return (
     <>
       <Header course={course} />
+
       <Content
         part1={part1}
         part2={part2}
@@ -23,6 +24,7 @@ const App = () => {
         exercises2={exercises2}
         exercises3={exercises3}
       />
+
       <p>Number of exercises {exercises1 + exercises2 + exercises3}</p>
     </>
   )
