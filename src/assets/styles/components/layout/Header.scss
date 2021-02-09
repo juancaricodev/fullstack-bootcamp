@@ -4,7 +4,7 @@
   align-items: center;
   gap: 50px;
   font-size: 21px;
-  height: 60px;
+  height: $header-height;
   background-color: $color-black;
 
   a {
@@ -19,6 +19,7 @@
     &:hover,
     &:active {
       color: $color-white;
+      font-weight: 400;
     }
   }
 }

@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  height: 100vh;
+  height: calc(100vh - 100px);
 
   &__title {
     font-size: 40px;
@@ -19,25 +19,20 @@
     font-size: 26px;
     font-weight: 400;
 
-    .Link:link {
-      color: yellow;
-      font-weight: 600;
+    .Link {
       text-decoration: none;
-    }
-    .Link:visited {
-      color: yellow;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .Link:hover {
-      color: yellow;
-      font-weight: 600;
-      text-decoration: none;
-    }
-    .Link:active {
-      color: yellow;
-      font-weight: 600;
-      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:link,
+      &:visited,
+      &:hover,
+      &:active {
+        color: $color-black;
+        font-weight: 600;
+      }
     }
   }
 }
