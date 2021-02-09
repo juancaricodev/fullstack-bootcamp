@@ -8,12 +8,16 @@ import {
 
 import PartOne from '@containers/PartOne'
 
+import Layout from '@layouts/Layout'
+
 const App = () => {
   return (
     <Router>
-      <Switch>
-        <Route exact path='/' component={PartOne} />
-      </Switch>
+      <Layout>
+        <Switch>
+          <Route exact path='/' component={PartOne} />
+        </Switch>
+      </Layout>
     </Router>
   )
 }
