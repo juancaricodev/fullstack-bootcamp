@@ -37,9 +37,9 @@ const PartTwo = () => {
 
   const allClicks = good + neutral + bad
 
-  const average = allClicks !== 0 ? (good * 1 + neutral * 0 + bad * -1) / allClicks : 0
+  const average = (good * 1 + neutral * 0 + bad * -1) / allClicks
 
-  const goodPercentage = allClicks !== 0 ? (good / allClicks) * 100 : 0
+  const goodPercentage = (good / allClicks) * 100
 
   return (
     <>
@@ -57,14 +57,18 @@ const PartTwo = () => {
         <h1>Statistics</h1>
 
         <div className='part-two__stats'>
-          <Statistics
-            good={good}
-            neutral={neutral}
-            bad={bad}
-            average={average}
-            allClicks={allClicks}
-            goodPercentage={goodPercentage}
-          />
+          {allClicks === 0 ? (
+            <h3>No feedback given</h3>
+          ) : (
+            <Statistics
+              good={good}
+              neutral={neutral}
+              bad={bad}
+              average={average}
+              allClicks={allClicks}
+              goodPercentage={goodPercentage}
+            />
+          )}
         </div>
       </div>
     </>
