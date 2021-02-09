@@ -22,7 +22,7 @@ const PartTwo = () => {
 
   const allClicks = good + neutral + bad
 
-  const average = allClicks
+  const average = allClicks !== 0 ? ((good * 1) + (neutral * 0) + (bad * -1)) / allClicks : 0
 
   const goodPercentage = allClicks !== 0 ? (good / allClicks) * 100 : 0
 
