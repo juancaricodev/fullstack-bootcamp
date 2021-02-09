@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 
 import Button from '@components/part-two/Button'
+import Statistic from '@components/part-two/Statistic'
 
 const PartTwo = () => {
   const [good, setGood] = useState(0)
@@ -34,9 +35,11 @@ const PartTwo = () => {
 
         <h1>Statistics</h1>
 
-        <div className='part-two__stats'>Good: {good}</div>
-        <div className='part-two__stats'>Neutral: {neutral}</div>
-        <div className='part-two__stats'>Bad: {bad}</div>
+        <div className='part-two__stats'>
+          <Statistic description='Good' value={good} />
+          <Statistic description='Neutral' value={neutral} />
+          <Statistic description='Bad' value={bad} />
+        </div>
       </div>
     </>
   )
