@@ -3,6 +3,21 @@ import React, { useState } from 'react'
 import Button from '@components/part-two/Button'
 import Statistic from '@components/part-two/Statistic'
 
+const Statistics = (props) => {
+  const { good, neutral, bad, allClicks, average, goodPercentage } = props
+
+  return (
+    <>
+      <Statistic description='Good' value={good} />
+      <Statistic description='Neutral' value={neutral} />
+      <Statistic description='Bad' value={bad} />
+      <Statistic description='All' value={allClicks} />
+      <Statistic description='Average' value={average} />
+      <Statistic description='Positive (%)' value={goodPercentage} />
+    </>
+  )
+}
+
 const PartTwo = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
@@ -22,7 +37,7 @@ const PartTwo = () => {
 
   const allClicks = good + neutral + bad
 
-  const average = allClicks !== 0 ? ((good * 1) + (neutral * 0) + (bad * -1)) / allClicks : 0
+  const average = allClicks !== 0 ? (good * 1 + neutral * 0 + bad * -1) / allClicks : 0
 
   const goodPercentage = allClicks !== 0 ? (good / allClicks) * 100 : 0
 
@@ -42,12 +57,14 @@ const PartTwo = () => {
         <h1>Statistics</h1>
 
         <div className='part-two__stats'>
-          <Statistic description='Good' value={good} />
-          <Statistic description='Neutral' value={neutral} />
-          <Statistic description='Bad' value={bad} />
-          <Statistic description='All' value={allClicks} />
-          <Statistic description='Average' value={average} />
-          <Statistic description='Positive (%)' value={goodPercentage} />
+          <Statistics
+            good={good}
+            neutral={neutral}
+            bad={bad}
+            average={average}
+            allClicks={allClicks}
+            goodPercentage={goodPercentage}
+          />
         </div>
       </div>
     </>
