@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import Button from '@components/part-two/Button'
+
 const PartTwo = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
@@ -25,9 +27,9 @@ const PartTwo = () => {
         <h1>Give Feedback</h1>
 
         <div className='part-two__btns'>
-          <button type='button' onClick={handleGoodClick}>Good</button>
-          <button type='button' onClick={handleNeutralClick}>Neutral</button>
-          <button type='button' onClick={handleBadClick}>Bad</button>
+          <Button handleEvent={handleGoodClick} text='Good' />
+          <Button handleEvent={handleNeutralClick} text='Neutral' />
+          <Button handleEvent={handleBadClick} text='Bad' />
         </div>
 
         <h1>Statistics</h1>
