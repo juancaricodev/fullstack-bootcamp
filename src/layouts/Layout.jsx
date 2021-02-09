@@ -1,11 +1,11 @@
 import React from 'react'
 
+import Header from '@components/layout/Header'
+
 const Layout = ({ children }) => {
   return (
     <div className='App'>
-      <header>
-        Header from Layout
-      </header>
+      <Header />
 
       {children}
     </div>

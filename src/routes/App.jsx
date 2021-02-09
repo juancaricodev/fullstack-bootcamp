@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 
 import Home from '@containers/Home'
+import NotFound from '@containers/NotFound'
 import PartOne from '@containers/PartOne'
 import Layout from '@layouts/Layout'
 
@@ -17,6 +18,7 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/partone' component={PartOne} />
+          <Route component={NotFound} />
         </Switch>
       </Layout>
     </Router>

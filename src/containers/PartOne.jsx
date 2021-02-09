@@ -1,8 +1,8 @@
 import React from 'react'
 
-import Content from '@components/partOne/Content'
-import Header from '@components/partOne/Header'
-import Total from '@components/partOne/Total'
+import Content from '@components/part-one/Content'
+import Header from '@components/part-one/Header'
+import Total from '@components/part-one/Total'
 
 const PartOne = () => {
   const course = {
