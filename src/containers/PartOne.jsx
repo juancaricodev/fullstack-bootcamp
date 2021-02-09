@@ -25,6 +25,8 @@ const PartOne = () => {
 
   return (
     <>
+      <h2 className='part-tag'>Exercises 1.1 to 1.5</h2>
+
       <Header course={course} />
 
       <Content course={course} />
