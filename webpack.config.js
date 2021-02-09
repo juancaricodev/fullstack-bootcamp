@@ -14,8 +14,10 @@ module.exports = {
     extensions: ['.js', '.jsx'],
     alias: {
       '@components': path.resolve(__dirname, 'src/components'),
+      '@containers': path.resolve(__dirname, 'src/containers'),
+      '@layouts': path.resolve(__dirname, 'src/layouts'),
       '@routes': path.resolve(__dirname, 'src/routes'),
-      '@styles': path.resolve(__dirname, 'src/assets/styles/components'),
+      '@styles': path.resolve(__dirname, 'src/assets/styles'),
       '@fonts': path.resolve(__dirname, 'src/assets/fonts')
     }
   },
@@ -45,9 +47,9 @@ module.exports = {
           'css-loader',
           {
             loader: 'sass-loader',
-            // options: {
-            //   additionalData: '@import "src/assets/styles/global.scss";'
-            // }
+            options: {
+              additionalData: '@import "src/assets/styles/global.scss";'
+            }
           }
         ]
       }

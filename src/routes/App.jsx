@@ -1,37 +1,29 @@
 import React from 'react'
 
-import Content from '@components/Content'
-import Header from '@components/Header'
-import Total from '@components/Total'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from 'react-router-dom'
+
+import Home from '@containers/Home'
+import NotFound from '@containers/NotFound'
+import PartOne from '@containers/PartOne'
+import PartTwo from '@containers/PartTwo'
+import Layout from '@layouts/Layout'
 
 const App = () => {
-  const course = 'Half Stack application development'
-  const part1 = 'Fundamentals of React'
-  const exercises1 = 10
-  const part2 = 'Using props to pass data'
-  const exercises2 = 7
-  const part3 = 'State of a component'
-  const exercises3 = 14
-
   return (
-    <>
-      <Header course={course} />
-
-      <Content
-        part1={part1}
-        part2={part2}
-        part3={part3}
-        exercises1={exercises1}
-        exercises2={exercises2}
-        exercises3={exercises3}
-      />
-
-      <Total
-        exercises1={exercises1}
-        exercises2={exercises2}
-        exercises3={exercises3}
-      />
-    </>
+    <Router>
+      <Layout>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/partone' component={PartOne} />
+          <Route exact path='/parttwo' component={PartTwo} />
+          <Route component={NotFound} />
+        </Switch>
+      </Layout>
+    </Router>
   )
 }
 
