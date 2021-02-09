@@ -20,6 +20,8 @@ const PartTwo = () => {
     setBad(() => bad + 1)
   }
 
+  const allClicks = good + neutral + bad
+
   return (
     <>
       <h2 className='part-tag'>Exercises 1.6 to 1.14 - WIP</h2>
@@ -39,6 +41,9 @@ const PartTwo = () => {
           <Statistic description='Good' value={good} />
           <Statistic description='Neutral' value={neutral} />
           <Statistic description='Bad' value={bad} />
+          <Statistic description='All' value={allClicks} />
+          <Statistic description='Average' value={bad} />
+          <Statistic description='Positive (%)' value={bad} />
         </div>
       </div>
     </>
