@@ -1,14 +1,16 @@
 import React from 'react'
 
 import Header from '@components/layout/Header'
+import '@styles/layout/Layout.scss'
 
 const Layout = ({ children }) => {
   return (
-    <div className='App'>
+    <>
       <Header />
-
-      {children}
-    </div>
+      <div className='layout'>
+        {children}
+      </div>
+    </>
   )
 }
 
