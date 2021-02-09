@@ -6,7 +6,7 @@ import {
   Route
 } from 'react-router-dom'
 
-import Home from '@components/Home'
+import Home from '@containers/Home'
 import PartOne from '@containers/PartOne'
 import Layout from '@layouts/Layout'
 
