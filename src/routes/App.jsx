@@ -9,6 +9,7 @@ import {
 import Home from '@containers/Home'
 import NotFound from '@containers/NotFound'
 import PartOne from '@containers/PartOne'
+import PartTwo from '@containers/PartTwo'
 import Layout from '@layouts/Layout'
 
 const App = () => {
@@ -18,6 +19,7 @@ const App = () => {
         <Switch>
           <Route exact path='/' component={Home} />
           <Route exact path='/partone' component={PartOne} />
+          <Route exact path='/parttwo' component={PartTwo} />
           <Route component={NotFound} />
         </Switch>
       </Layout>
