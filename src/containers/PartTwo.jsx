@@ -22,6 +22,10 @@ const PartTwo = () => {
 
   const allClicks = good + neutral + bad
 
+  const average = allClicks
+
+  const goodPercentage = allClicks !== 0 ? (good / allClicks) * 100 : 0
+
   return (
     <>
       <h2 className='part-tag'>Exercises 1.6 to 1.14 - WIP</h2>
@@ -42,8 +46,8 @@ const PartTwo = () => {
           <Statistic description='Neutral' value={neutral} />
           <Statistic description='Bad' value={bad} />
           <Statistic description='All' value={allClicks} />
-          <Statistic description='Average' value={bad} />
-          <Statistic description='Positive (%)' value={bad} />
+          <Statistic description='Average' value={average} />
+          <Statistic description='Positive (%)' value={goodPercentage} />
         </div>
       </div>
     </>
