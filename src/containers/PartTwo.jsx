@@ -2,18 +2,21 @@ import React, { useState } from 'react'
 
 import Button from '@components/part-two/Button'
 import Statistic from '@components/part-two/Statistic'
+import '@styles/containers/PartTwo.scss'
 
 const Statistics = (props) => {
   const { good, neutral, bad, allClicks, average, goodPercentage } = props
 
   return (
     <>
-      <Statistic description='Good' value={good} />
-      <Statistic description='Neutral' value={neutral} />
-      <Statistic description='Bad' value={bad} />
-      <Statistic description='All' value={allClicks} />
-      <Statistic description='Average' value={average} />
-      <Statistic description='Positive (%)' value={goodPercentage} />
+      <table>
+        <Statistic description='Good' value={good} />
+        <Statistic description='Neutral' value={neutral} />
+        <Statistic description='Bad' value={bad} />
+        <Statistic description='All' value={allClicks} />
+        <Statistic description='Average' value={average} />
+        <Statistic description='Positive (%)' value={goodPercentage} />
+      </table>
     </>
   )
 }
@@ -43,7 +46,7 @@ const PartTwo = () => {
 
   return (
     <>
-      <h2 className='part-tag'>Exercises 1.6 to 1.14 - WIP</h2>
+      <h2 className='part-tag'>Exercises 1.6 to 1.11</h2>
 
       <div className='part-two'>
         <h1>Give Feedback</h1>
