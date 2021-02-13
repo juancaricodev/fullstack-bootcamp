@@ -45,7 +45,7 @@ const PartThree = () => {
 
   return (
     <>
-      <h2 className='part-tag'>Exercises 1.12 to 1.14 - WIP</h2>
+      <h2 className='part-tag'>Exercises 1.12 to 1.14</h2>
 
       <div className='part-three'>
         <Anecdotes
