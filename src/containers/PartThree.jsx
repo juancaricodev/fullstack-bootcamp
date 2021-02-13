@@ -28,13 +28,8 @@ const PartThree = () => {
 
     const maxCalc = prev.indexOf(Math.max(...prev))
     setMostVoted(maxCalc)
-
-    console.log('prev:', prev)
-    console.log('most voted index', maxCalc)
   }
 
-  console.log('scores:', scores)
-  console.log('mostVoted:', mostVoted)
   return (
     <>
       <h2 className='part-tag'>Exercises 1.12 to 1.14 - WIP</h2>
@@ -55,7 +50,7 @@ const PartThree = () => {
           <h2>Anecdote with most votes</h2>
 
           {
-            mostVoted === 0
+            scores === INITIAL_SCORES
               ? <h3>No anecdote has been voted yet!</h3>
               : (
                 <>
