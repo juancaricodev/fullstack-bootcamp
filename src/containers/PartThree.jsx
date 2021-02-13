@@ -12,8 +12,22 @@ const PartThree = () => {
 
   const [selected, setSelected] = useState(0)
 
+  const INITIAL_SCORES = new Array(anecdotes.length + 1).join('0').split('').map(parseFloat)
+
+  const [scores, setScores] = useState(INITIAL_SCORES)
+  // const [scores, setScores] = useState([0, 0, 0, 0, 0, 0])
+
   const handleClick = () => {
     setSelected(() => Math.floor(Math.random() * anecdotes.length))
+  }
+
+  const handleVote = () => {
+    // const prev = [...scores]
+
+    // setScores([prev[id] += 1])
+    setScores([scores[0] += 1])
+
+    console.log(scores)
   }
 
   return (
@@ -23,6 +37,9 @@ const PartThree = () => {
       <div className='part-three'>
         <div>{anecdotes[selected]}</div>
 
+        <div>Has {scores[selected]} votes.</div>
+
+        <button type='button' onClick={handleVote}>Vote</button>
         <button type='button' onClick={handleClick}>Next Anecdote</button>
       </div>
     </>
