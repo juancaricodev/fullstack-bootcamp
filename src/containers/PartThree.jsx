@@ -29,7 +29,8 @@ const PartThree = () => {
   const [mostVoted, setMostVoted] = useState(0)
 
   const handleClick = () => {
-    setSelected(() => Math.floor(Math.random() * anecdotes.length))
+    const random = () => Math.floor(Math.random() * anecdotes.length)
+    setSelected(random)
   }
 
   const handleVote = () => {
