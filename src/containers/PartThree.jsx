@@ -25,7 +25,7 @@ const PartThree = () => {
     // const prev = [...scores]
 
     // setScores([prev[id] += 1])
-    setScores([scores[0] += 1])
+    setScores([scores[selected] += 1])
 
     console.log(scores)
   }
