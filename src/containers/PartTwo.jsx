@@ -51,7 +51,7 @@ const PartTwo = () => {
       <div className='part-two'>
         <h1>Give Feedback</h1>
 
-        <div className='part-two__btns'>
+        <div className='part-two__btns btn-set'>
           <Button handleEvent={handleGoodClick} text='Good' />
           <Button handleEvent={handleNeutralClick} text='Neutral' />
           <Button handleEvent={handleBadClick} text='Bad' />
