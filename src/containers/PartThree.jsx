@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import '@styles/containers/PartThree.scss'
+
 const anecdotes = [
   'If it hurts, do it more often',
   'Adding manpower to a late software project makes it later!',
@@ -42,8 +44,11 @@ const PartThree = () => {
 
           <div>Has {scores[selected]} votes.</div>
 
-          <button type='button' onClick={handleVote}>Vote</button>
-          <button type='button' onClick={handleClick}>Next Anecdote</button>
+          <div className='btn-set'>
+            <button type='button' onClick={handleVote}>Vote</button>
+            <button type='button' onClick={handleClick}>Next Anecdote</button>
+          </div>
+
         </section>
 
         <section className='most-voted'>

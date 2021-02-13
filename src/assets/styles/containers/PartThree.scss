@@ -1,0 +1,35 @@
+.part-three {
+  margin-top: 20px;
+
+  .anecdotes {
+    div {
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn-set {
+      button {
+        @include btn($color-black, $color-white, $color-black);
+
+        &:hover {
+          @include btn-hover;
+        }
+      }
+    }
+  }
+
+  .most-voted {
+    margin-top: 20px;
+
+    h3 {
+      margin-left: 7px;
+    }
+
+    div {
+      height: 50px;
+      display: flex;
+      align-items: center;
+    }
+  }
+}
