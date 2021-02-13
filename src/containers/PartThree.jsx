@@ -12,6 +12,15 @@ const anecdotes = [
   'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.'
 ]
 
+const MostVoted = ({ anecdotes, scores }) => {
+  return (
+    <>
+      <div>{anecdotes}</div>
+      <div>Has {scores} votes.</div>
+    </>
+  )
+}
+
 const PartThree = () => {
   const INITIAL_SCORES = Array(anecdotes.length).fill(0)
 
@@ -38,20 +47,6 @@ const PartThree = () => {
       <h2 className='part-tag'>Exercises 1.12 to 1.14 - WIP</h2>
 
       <div className='part-three'>
-        {/* <section className='anecdotes'>
-          <h2>Anecdote of the day</h2>
-
-          <div>{anecdotes[selected]}</div>
-
-          <div>Has {scores[selected]} votes.</div>
-
-          <div className='btn-set'>
-            <button type='button' onClick={handleVote}>Vote</button>
-            <button type='button' onClick={handleClick}>Next Anecdote</button>
-          </div>
-
-        </section> */}
-
         <Anecdotes
           anecdotes={anecdotes[selected]}
           scores={scores[selected]}
@@ -65,12 +60,7 @@ const PartThree = () => {
           {
             scores === INITIAL_SCORES
               ? <h3>No anecdote has been voted yet!</h3>
-              : (
-                <>
-                  <div>{anecdotes[mostVoted]}</div>
-                  <div>Has {scores[mostVoted]} votes.</div>
-                </>
-              )
+              : <MostVoted anecdotes={anecdotes[mostVoted]} scores={scores[mostVoted]} />
           }
         </section>
       </div>
