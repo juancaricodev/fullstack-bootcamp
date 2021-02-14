@@ -45,7 +45,10 @@ const Anecdotes = () => {
 
   return (
     <>
-      <h2 className='part-tag'>Exercises 1.12 to 1.14</h2>
+      <div className='part-tag'>
+        <h2>Anecdotes</h2>
+        <h3>Exercises 1.12 to 1.14</h3>
+      </div>
 
       <div className='part-three'>
         <AnecdoteList

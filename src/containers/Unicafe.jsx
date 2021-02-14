@@ -46,7 +46,10 @@ const Unicafe = () => {
 
   return (
     <>
-      <h2 className='part-tag'>Exercises 1.6 to 1.11</h2>
+      <div className='part-tag'>
+        <h2>Unicafe</h2>
+        <h3>Exercises 1.6 to 1.11</h3>
+      </div>
 
       <div className='part-two'>
         <h1>Give Feedback</h1>

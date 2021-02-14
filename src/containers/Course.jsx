@@ -25,7 +25,10 @@ const Course = () => {
 
   return (
     <>
-      <h2 className='part-tag'>Exercises 1.1 to 1.5</h2>
+      <div className='part-tag'>
+        <h2>Course</h2>
+        <h3>Exercises 1.1 to 1.5</h3>
+      </div>
 
       <Header course={course} />
 
