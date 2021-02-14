@@ -72,6 +72,16 @@ button {
   }
 }
 
+input[type=text] {
+  padding: 0 10px;
+  height: 30px;
+  font-family: $font;
+  font-size: 19px;
+  border-radius: 10px;
+  border: solid 1px $color-black;
+  outline: none;
+}
+
 .part-tag  {
   padding: 15px;
   text-align: center;

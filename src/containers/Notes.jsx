@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import '@styles/containers/Notes.scss'
+
 const noteList = [
   {
     content: 'First note',
