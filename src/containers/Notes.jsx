@@ -45,6 +45,7 @@ const Notes = () => {
 
     if (newNote !== '') {
       setNotes(notes.concat(noteObject))
+      // setNotes([...notes, noteObject])
       setShowEmpty(false)
     } else {
       setShowEmpty(true)

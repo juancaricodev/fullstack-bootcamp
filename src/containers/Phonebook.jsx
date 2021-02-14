@@ -11,7 +11,12 @@ const Phonebook = () => {
       name: newName
     }
 
-    setPersons(persons.concat(newPerson))
+    if (newPerson.name === '') {
+      alert('The name field is empty')
+    } else {
+      setPersons([...persons, newPerson])
+    }
+
     setNewName('')
   }
 
