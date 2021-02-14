@@ -77,16 +77,6 @@ const Notes = () => {
           />
           <button type='submit'>Save</button>
         </form>
-
-        {/* <div className='notes-important'>
-          <h3>Important Notes</h3>
-
-          <ul>
-            {notesToShow.map((note) => (
-              <li key={note.id}>{note.content}</li>
-            ))}
-          </ul>
-        </div> */}
       </div>
     </>
   )
