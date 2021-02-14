@@ -30,7 +30,7 @@ const Course = () => {
     <>
       <div className='part-tag'>
         <h2>Course</h2>
-        <h3>Exercises 1.1 to 1.5</h3>
+        <h3>Exercises 1.1 to 1.5 - 2.1 to 2.5</h3>
       </div>
 
       <Header course={course} />

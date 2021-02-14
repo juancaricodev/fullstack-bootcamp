@@ -5,7 +5,7 @@ const Total = (props) => {
 
   return (
     <strong>
-      Number of exercises {course.parts[0].exercises + course.parts[1].exercises + course.parts[2].exercises}
+      Number of exercises {course.parts.reduce((sum, course) => sum + course.exercises, 0)}
     </strong>
   )
 }
