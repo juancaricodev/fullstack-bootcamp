@@ -11,6 +11,7 @@ const Header = () => {
       <Link to='/courses'>Courses</Link>
       <Link to='/unicafe'>Unicafe</Link>
       <Link to='/anecdotes'>Anecdotes</Link>
+      <Link to='/notes'>Notes</Link>
     </header>
   )
 }
