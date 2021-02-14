@@ -12,6 +12,7 @@ const Header = () => {
       <Link to='/unicafe'>Unicafe</Link>
       <Link to='/anecdotes'>Anecdotes</Link>
       <Link to='/notes'>Notes</Link>
+      <Link to='/phonebook'>Phonebook</Link>
     </header>
   )
 }
