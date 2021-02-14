@@ -23,15 +23,23 @@ const noteList = [
 
 const Notes = () => {
   const [notes, setNotes] = useState(noteList)
-  const [newNote, setNewNote] = useState('a new note...')
+  const [newNote, setNewNote] = useState('')
 
   const addNote = (e) => {
     e.preventDefault()
-    console.log('notes', e.target)
+
+    const noteObject = {
+      content: newNote,
+      date: new Date().toISOString(),
+      important: Math.random() < 0.5,
+      id: notes.length + 1
+    }
+
+    setNotes(notes.concat(noteObject))
+    setNewNote('')
   }
 
   const handleNoteChange = (event) => {
-    console.log(event.target.value)
     setNewNote(event.target.value)
   }
 
@@ -47,7 +55,7 @@ const Notes = () => {
 
         <ul>
           {notes.map((note) => (
-            <li key={note.id}>{note.text}</li>
+            <li key={note.id}>{note.content}</li>
           ))}
         </ul>
 
@@ -56,6 +64,7 @@ const Notes = () => {
             type='text'
             value={newNote}
             onChange={handleNoteChange}
+            placeholder='New note'
           />
           <button type='submit'>Save</button>
         </form>
