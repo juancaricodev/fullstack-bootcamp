@@ -16,7 +16,6 @@ const Phonebook = () => {
     const nameMatch = persons.find((person) => person.name === newPerson.name)
 
     if (newPerson.name === '' || newPerson.phone === '') {
-    // if ((newPerson.name || newPerson.phone) === '') {
       alert('All fields should be filled')
     } else if (nameMatch) {
       alert(`${newPerson.name} is already added to phonebook`)
