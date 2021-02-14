@@ -2,12 +2,10 @@ import React from 'react'
 
 import Part from '@components/course/Part'
 
-const Content = (props) => {
-  const { course } = props
-
+const Content = ({ parts }) => {
   return (
     <ul>
-      {course.parts.map((item) => (
+      {parts.map((item) => (
         <li key={item.id}>
           <Part part={item.name} exercises={item.exercises} />
         </li>

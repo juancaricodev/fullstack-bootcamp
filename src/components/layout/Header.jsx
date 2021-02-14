@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header className='header'>
       <Link to='/'>Home</Link>
-      <Link to='/course'>Course</Link>
+      <Link to='/courses'>Courses</Link>
       <Link to='/unicafe'>Unicafe</Link>
       <Link to='/anecdotes'>Anecdotes</Link>
     </header>
