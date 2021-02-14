@@ -1,31 +1,37 @@
 import React from 'react'
 
-import Content from '@components/part-one/Content'
-import Header from '@components/part-one/Header'
-import Total from '@components/part-one/Total'
+import Content from '@components/course/Content'
+import Header from '@components/course/Header'
+import Total from '@components/course/Total'
 
-const PartOne = () => {
+const Course = () => {
   const course = {
     name: 'Half Stack application development',
     parts: [
       {
         name: 'Fundamentals of React',
-        exercises: 10
+        exercises: 10,
+        id: 1
       },
       {
         name: 'Using props to pass data',
-        exercises: 7
+        exercises: 7,
+        id: 2
       },
       {
         name: 'State of a component',
-        exercises: 14
+        exercises: 14,
+        id: 3
       }
     ]
   }
 
   return (
     <>
-      <h2 className='part-tag'>Exercises 1.1 to 1.5</h2>
+      <div className='part-tag'>
+        <h2>Course</h2>
+        <h3>Exercises 1.1 to 1.5 - 2.1 to 2.5</h3>
+      </div>
 
       <Header course={course} />
 
@@ -36,4 +42,4 @@ const PartOne = () => {
   )
 }
 
-export default PartOne
+export default Course
