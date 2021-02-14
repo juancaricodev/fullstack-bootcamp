@@ -56,6 +56,18 @@ a {
   }
 }
 
+h1 {
+  margin: 20px 0;
+}
+
+button {
+  @include btn($color-black, $color-white, $color-black);
+
+  &:hover {
+    @include btn-hover;
+  }
+}
+
 .part-tag  {
   text-align: center;
   color: $color-white;
