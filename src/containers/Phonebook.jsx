@@ -1,9 +1,17 @@
 import React, { useState } from 'react'
 
+const INITIAL_STATE = [
+  { name: 'Arto Hellas', phone: '040-123456' },
+  { name: 'Ada Lovelace', phone: '39-44-5323523' },
+  { name: 'Dan Abramov', phone: '12-43-234345' },
+  { name: 'Mary Poppendieck', phone: '39-23-6423122' }
+]
+
 const Phonebook = () => {
-  const [persons, setPersons] = useState([{ name: 'Arto Hellas' }])
+  const [persons, setPersons] = useState(INITIAL_STATE)
   const [newName, setNewName] = useState('')
   const [newPhone, setNewPhone] = useState('')
+  const [newSearch, setNewSearch] = useState('')
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -35,6 +43,16 @@ const Phonebook = () => {
     setNewPhone(e.target.value)
   }
 
+  const handleSearchSubmit = (e) => {
+    e.preventDefault()
+    console.log('searching')
+  }
+
+  const handleNameSearch = (e) => {
+    setNewSearch(e.target.value)
+    console.log(newSearch)
+  }
+
   return (
     <>
       <div className='part-tag'>
@@ -44,6 +62,19 @@ const Phonebook = () => {
 
       <div className='phonebook'>
         <h2>Phonebook</h2>
+
+        <form onSubmit={handleSearchSubmit}>
+          <input
+            type='text'
+            placeholder='Search by name'
+            value={newSearch}
+            onChange={handleNameSearch}
+          />
+          <button type='submit'>Search</button>
+        </form>
+
+        <h3>Add New</h3>
+
         <form onSubmit={handleSubmit}>
           <div>
             <input
@@ -68,7 +99,7 @@ const Phonebook = () => {
           </div>
         </form>
 
-        <h2>Numbers</h2>
+        <h3>Numbers</h3>
 
         <ul>
           {persons.map((person) => (
