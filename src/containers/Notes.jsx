@@ -4,7 +4,7 @@ const noteList = [
   {
     content: 'First note',
     date: 'date',
-    important: 0,
+    important: 1,
     id: 1
   },
   {
@@ -16,7 +16,7 @@ const noteList = [
   {
     content: 'Third note',
     date: 'date',
-    important: 0,
+    important: 1,
     id: 3
   }
 ]
@@ -24,6 +24,11 @@ const noteList = [
 const Notes = () => {
   const [notes, setNotes] = useState(noteList)
   const [newNote, setNewNote] = useState('')
+  const [showAll, setShowAll] = useState(true)
+
+  const notesToShow = showAll
+    ? notes
+    : notes.filter((note) => note.important === 1)
 
   const addNote = (e) => {
     e.preventDefault()
@@ -53,8 +58,12 @@ const Notes = () => {
       <div className='notes'>
         <h2>Notes</h2>
 
+        <button type='button' onClick={() => setShowAll(!showAll)}>
+          Show {showAll ? 'important' : 'all'}
+        </button>
+
         <ul>
-          {notes.map((note) => (
+          {notesToShow.map((note) => (
             <li key={note.id}>{note.content}</li>
           ))}
         </ul>
@@ -68,6 +77,16 @@ const Notes = () => {
           />
           <button type='submit'>Save</button>
         </form>
+
+        {/* <div className='notes-important'>
+          <h3>Important Notes</h3>
+
+          <ul>
+            {notesToShow.map((note) => (
+              <li key={note.id}>{note.content}</li>
+            ))}
+          </ul>
+        </div> */}
       </div>
     </>
   )
