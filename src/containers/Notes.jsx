@@ -1,7 +1,28 @@
 import React, { useState } from 'react'
 
+const noteList = [
+  {
+    content: 'First note',
+    date: 'date',
+    important: 0,
+    id: 1
+  },
+  {
+    content: 'Second note',
+    date: 'date',
+    important: 0,
+    id: 2
+  },
+  {
+    content: 'Third note',
+    date: 'date',
+    important: 0,
+    id: 3
+  }
+]
+
 const Notes = () => {
-  const [notes, setNotes] = useState([{ text: 'some note', id: 1 }])
+  const [notes, setNotes] = useState(noteList)
   const [newNote, setNewNote] = useState('a new note...')
 
   const addNote = (e) => {
