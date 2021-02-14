@@ -11,8 +11,12 @@ const Phonebook = () => {
       name: newName
     }
 
+    const nameMatch = persons.find((person) => person.name === newPerson.name)
+
     if (newPerson.name === '') {
       alert('The name field is empty')
+    } else if (nameMatch) {
+      alert(`${newPerson.name} is already added to phonebook`)
     } else {
       setPersons([...persons, newPerson])
     }
