@@ -1,6 +1,7 @@
 // Colors
 $color-white: #fafafa;
 $color-black: #262626;
+$color-red: #bb2124;
 
 // Sizes
 $header-height: 60px;
@@ -94,4 +95,9 @@ input[type=text] {
   display: flex;
   align-items: center;
   gap: 20px;
+}
+
+.danger {
+  font-weight: 600;
+  color: $color-red;
 }

@@ -27,6 +27,7 @@ const Notes = () => {
   const [notes, setNotes] = useState(noteList)
   const [newNote, setNewNote] = useState('')
   const [showAll, setShowAll] = useState(true)
+  const [showEmpty, setShowEmpty] = useState(false)
 
   const notesToShow = showAll
     ? notes
@@ -42,7 +43,13 @@ const Notes = () => {
       id: notes.length + 1
     }
 
-    setNotes(notes.concat(noteObject))
+    if (newNote !== '') {
+      setNotes(notes.concat(noteObject))
+      setShowEmpty(false)
+    } else {
+      setShowEmpty(true)
+    }
+
     setNewNote('')
   }
 
@@ -79,6 +86,12 @@ const Notes = () => {
           />
           <button type='submit'>Save</button>
         </form>
+
+        {
+          showEmpty === true
+            ? <div className='notes-empty danger'>The input field is empty</div>
+            : ''
+        }
       </div>
     </>
   )
