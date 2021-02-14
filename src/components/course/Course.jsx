@@ -5,8 +5,6 @@ import Header from '@components/course/Header'
 import Total from '@components/course/Total'
 
 const Course = ({ courses }) => {
-  console.log('getting courses', courses.name)
-
   return (
     <>
       <Header name={courses.name} />
