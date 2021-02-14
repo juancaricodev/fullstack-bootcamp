@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
 
-import Button from '@components/part-two/Button'
-import Statistic from '@components/part-two/Statistic'
-import '@styles/containers/PartTwo.scss'
+import Button from '@components/unicafe/Button'
+import Statistic from '@components/unicafe/Statistic'
+import '@styles/containers/Unicafe.scss'
 
 const Statistics = (props) => {
   const { good, neutral, bad, allClicks, average, goodPercentage } = props
@@ -21,7 +21,7 @@ const Statistics = (props) => {
   )
 }
 
-const PartTwo = () => {
+const Unicafe = () => {
   const [good, setGood] = useState(0)
   const [neutral, setNeutral] = useState(0)
   const [bad, setBad] = useState(0)
@@ -78,4 +78,4 @@ const PartTwo = () => {
   )
 }
 
-export default PartTwo
+export default Unicafe

@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Anecdotes = (props) => {
+const AnecdoteList = (props) => {
   const { anecdotes, scores, handleVote, handleClick } = props
 
   return (
@@ -19,4 +19,4 @@ const Anecdotes = (props) => {
   )
 }
 
-export default Anecdotes
+export default AnecdoteList

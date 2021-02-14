@@ -1,10 +1,10 @@
 import React from 'react'
 
-import Content from '@components/part-one/Content'
-import Header from '@components/part-one/Header'
-import Total from '@components/part-one/Total'
+import Content from '@components/course/Content'
+import Header from '@components/course/Header'
+import Total from '@components/course/Total'
 
-const PartOne = () => {
+const Course = () => {
   const course = {
     name: 'Half Stack application development',
     parts: [
@@ -36,4 +36,4 @@ const PartOne = () => {
   )
 }
 
-export default PartOne
+export default Course

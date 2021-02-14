@@ -6,11 +6,11 @@ import {
   Route
 } from 'react-router-dom'
 
+import Anecdotes from '@containers/Anecdotes'
+import Course from '@containers/Course'
 import Home from '@containers/Home'
 import NotFound from '@containers/NotFound'
-import PartOne from '@containers/PartOne'
-import PartThree from '@containers/PartThree'
-import PartTwo from '@containers/PartTwo'
+import Unicafe from '@containers/Unicafe'
 import Layout from '@layouts/Layout'
 
 const App = () => {
@@ -19,9 +19,9 @@ const App = () => {
       <Layout>
         <Switch>
           <Route exact path='/' component={Home} />
-          <Route exact path='/partone' component={PartOne} />
-          <Route exact path='/parttwo' component={PartTwo} />
-          <Route exact path='/partthree' component={PartThree} />
+          <Route exact path='/course' component={Course} />
+          <Route exact path='/unicafe' component={Unicafe} />
+          <Route exact path='/anecdotes' component={Anecdotes} />
           <Route component={NotFound} />
         </Switch>
       </Layout>

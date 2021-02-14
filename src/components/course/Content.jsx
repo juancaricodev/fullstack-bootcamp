@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Part from '@components/part-one/Part'
+import Part from '@components/course/Part'
 
 const Content = (props) => {
   const { course } = props

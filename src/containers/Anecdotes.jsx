@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 
-import Anecdotes from '../components/part-three/Anecdotes'
-import '@styles/containers/PartThree.scss'
+import AnecdoteList from '@components/anecdotes/AnecdoteList'
+import '@styles/containers/Anecdotes.scss'
 
 const anecdotes = [
   'If it hurts, do it more often',
@@ -21,7 +21,7 @@ const MostVoted = ({ anecdotes, scores }) => {
   )
 }
 
-const PartThree = () => {
+const Anecdotes = () => {
   const INITIAL_SCORES = Array(anecdotes.length).fill(0)
 
   const [selected, setSelected] = useState(0)
@@ -48,7 +48,7 @@ const PartThree = () => {
       <h2 className='part-tag'>Exercises 1.12 to 1.14</h2>
 
       <div className='part-three'>
-        <Anecdotes
+        <AnecdoteList
           anecdotes={anecdotes[selected]}
           scores={scores[selected]}
           handleClick={handleClick}
@@ -69,4 +69,4 @@ const PartThree = () => {
   )
 }
 
-export default PartThree
+export default Anecdotes
