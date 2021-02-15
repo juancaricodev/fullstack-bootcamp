@@ -4,6 +4,8 @@ const INITIAL_STATE = [
   { name: 'Arto Hellas', phone: '040-123456' },
   { name: 'Ada Lovelace', phone: '39-44-5323523' },
   { name: 'Dan Abramov', phone: '12-43-234345' },
+  { name: 'Dan Abramovich', phone: '12-43-234345' },
+  { name: 'Arto Hollas', phone: '040-65445654' },
   { name: 'Mary Poppendieck', phone: '39-23-6423122' }
 ]
 
@@ -12,6 +14,7 @@ const Phonebook = () => {
   const [newName, setNewName] = useState('')
   const [newPhone, setNewPhone] = useState('')
   const [newSearch, setNewSearch] = useState('')
+  const [filteredData, setFilteredData] = useState([])
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -29,6 +32,7 @@ const Phonebook = () => {
       alert(`${newPerson.name} is already added to phonebook`)
     } else {
       setPersons([...persons, newPerson])
+      setFilteredData([])
     }
 
     setNewName('')
@@ -45,12 +49,19 @@ const Phonebook = () => {
 
   const handleSearchSubmit = (e) => {
     e.preventDefault()
-    console.log('searching')
+
+    const filterPersons = persons.filter((person) => person.name === newSearch)
+
+    setFilteredData(filterPersons)
   }
 
   const handleNameSearch = (e) => {
     setNewSearch(e.target.value)
-    console.log(newSearch)
+  }
+
+  const handleShowAll = () => {
+    setFilteredData([])
+    setNewSearch('')
   }
 
   return (
@@ -99,15 +110,29 @@ const Phonebook = () => {
           </div>
         </form>
 
-        <h3>Numbers</h3>
+        <h3>Numbers {filteredData.length > 0 ? `- filtered by: ${newSearch}` : ''}</h3>
 
-        <ul>
-          {persons.map((person) => (
-            <li key={person.name}>
-              {person.name} {person.phone ? `-  ${person.phone}` : ''}
-            </li>
-          ))}
-        </ul>
+        {
+          filteredData.length > 0
+            ? (
+              <ul>
+                {filteredData.map((person) => (
+                  <li key={person.name}>
+                    {person.name} {person.phone ? `-  ${person.phone}` : ''}
+                  </li>
+                ))}
+                <button type='button' onClick={handleShowAll}>Show All</button>
+              </ul>
+            ) : (
+              <ul>
+                {persons.map((person) => (
+                  <li key={person.name}>
+                    {person.name} {person.phone ? `-  ${person.phone}` : ''}
+                  </li>
+                ))}
+              </ul>
+            )
+        }
       </div>
     </>
   )
