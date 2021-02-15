@@ -6,7 +6,9 @@ const INITIAL_STATE = [
   { name: 'Dan Abramov', phone: '12-43-234345' },
   { name: 'Dan Abramovich', phone: '12-43-234345' },
   { name: 'Arto Hollas', phone: '040-65445654' },
-  { name: 'Mary Poppendieck', phone: '39-23-6423122' }
+  { name: 'Arto Pollas', phone: '040-65445654' },
+  { name: 'Mary Poppendieck', phone: '39-23-6423122' },
+  { name: 'Harry Poppendieck', phone: '39-23-6423122' }
 ]
 
 const Phonebook = () => {
@@ -50,9 +52,17 @@ const Phonebook = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault()
 
-    const filterPersons = persons.filter((person) => person.name === newSearch)
+    const personsLower = persons.map((person) => person.name.toLowerCase())
+
+    const searchLower = newSearch.toLowerCase()
+
+    const filterPersons = personsLower.filter((person) => person === searchLower)
 
     setFilteredData(filterPersons)
+
+    console.log('newSearch lower:', searchLower)
+    console.log('persons lower:', personsLower)
+    console.log('filter:', filterPersons)
   }
 
   const handleNameSearch = (e) => {
