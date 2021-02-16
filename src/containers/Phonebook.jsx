@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import NewPeople from '@components/phonebook/NewPeople'
 import Numbers from '@components/phonebook/Numbers'
@@ -7,25 +7,22 @@ import Searchbar from '@components/phonebook/Searchbar'
 
 import '@styles/containers/Phonebook.scss'
 
-const INITIAL_STATE = [
-  { name: 'Arto Hellas', phone: '040-123456' },
-  { name: 'Ada Lovelace', phone: '39-44-5323523' },
-  { name: 'Dan Abramov', phone: '12-43-234345' },
-  { name: 'Dan Abramovich', phone: '12-43-234345' },
-  { name: 'Arto Hollas', phone: '040-65445654' },
-  { name: 'Arto Pollas', phone: '040-65445654' },
-  { name: 'Mary Poppendieck', phone: '39-23-6423122' },
-  { name: 'Harry Poppendieck', phone: '39-23-6423122' }
-]
-
 const Phonebook = () => {
-  const [persons, setPersons] = useState(INITIAL_STATE)
+  const [persons, setPersons] = useState([])
   const [newName, setNewName] = useState('')
   const [newPhone, setNewPhone] = useState('')
   const [newSearch, setNewSearch] = useState('')
   const [filteredData, setFilteredData] = useState([])
   const [match, setMatch] = useState(true)
   const [empty, setEmpty] = useState(false)
+
+  useEffect(() => {
+    const fetchingData = fetch('http://localhost:5000/persons')
+    fetchingData
+      .then(res => res.json())
+      .then(res => setPersons(res))
+
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
