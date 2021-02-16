@@ -21,7 +21,6 @@ const Phonebook = () => {
     fetchingData
       .then(res => res.json())
       .then(res => setPersons(res))
-
   }, [])
 
   const handleSubmit = (e) => {
@@ -29,12 +28,12 @@ const Phonebook = () => {
 
     const newPerson = {
       name: newName,
-      phone: newPhone
+      number: newPhone
     }
 
     const nameMatch = persons.find((person) => person.name === newPerson.name)
 
-    if (newPerson.name === '' || newPerson.phone === '') {
+    if (newPerson.name === '' || newPerson.number === '') {
       alert('All fields should be filled')
     } else if (nameMatch) {
       alert(`${newPerson.name} is already added to phonebook`)
@@ -65,15 +64,16 @@ const Phonebook = () => {
 
     const filterPersons = newArray.filter((person) => person.name.toLowerCase().includes(searchLower))
 
-    setFilteredData(filterPersons)
+    if (newSearch.length > 0) {
+      setFilteredData(filterPersons)
+      setEmpty(false)
+    } else {
+      setEmpty(true)
+    }
 
     filterPersons.length > 0
       ? setMatch(true)
       : setMatch(false)
-
-    newSearch.length > 0
-      ? setEmpty(false)
-      : setEmpty(true)
   }
 
   const handleNameSearch = (e) => {

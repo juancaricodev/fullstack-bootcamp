@@ -7,7 +7,7 @@ const NumbersFiltered = ({ newSearch, filteredData, handleShowAll }) => {
       <ul>
         {filteredData.map((person) => (
           <li key={person.name}>
-            {person.name} {person.phone ? `-  ${person.phone}` : ''}
+            {person.name} {person.number ? `-  ${person.number}` : ''}
           </li>
         ))}
         <button type='button' onClick={handleShowAll}>Show All</button>
