@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import NewPeople from '../components/phonebook/NewPeople'
 import Numbers from '../components/phonebook/Numbers'
+import NumbersFiltered from '../components/phonebook/NumbersFiltered'
 
 import Searchbar from '../components/phonebook/Searchbar'
 
@@ -170,18 +171,21 @@ const Phonebook = () => {
                 handleShowAll={handleShowAll}
               />
             ) : (
-              <>
-                <h3>Numbers</h3>
-                <ul>
-                  {persons.map((person) => (
-                    <li key={person.name}>
-                      {person.name} {person.phone ? `-  ${person.phone}` : ''}
-                    </li>
-                  ))}
-                </ul>
-              </>
+
+              <NumbersFiltered persons={persons} />
             )
         }
+
+        {/* <>
+          <h3>Numbers</h3>
+          <ul>
+            {persons.map((person) => (
+              <li key={person.name}>
+                {person.name} {person.phone ? `-  ${person.phone}` : ''}
+              </li>
+            ))}
+          </ul>
+        </> */}
       </div>
     </>
   )
