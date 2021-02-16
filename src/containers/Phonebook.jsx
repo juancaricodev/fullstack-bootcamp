@@ -17,6 +17,8 @@ const Phonebook = () => {
   const [newPhone, setNewPhone] = useState('')
   const [newSearch, setNewSearch] = useState('')
   const [filteredData, setFilteredData] = useState([])
+  const [match, setMatch] = useState(true)
+  // const [empty, setEmpty] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -60,7 +62,10 @@ const Phonebook = () => {
 
     setFilteredData(filterPersons)
 
-    console.log('filter:', filterPersons)
+    filterPersons.length > 0
+      ? setMatch(true)
+      : setMatch(false)
+
   }
 
   const handleNameSearch = (e) => {
@@ -91,6 +96,9 @@ const Phonebook = () => {
           />
           <button type='submit'>Search</button>
         </form>
+
+        <strong>{match ? '' : 'No match for that search'}</strong>
+        {/* <strong>{match ? '' : 'Field empty'}</strong> */}
 
         <h3>Add New</h3>
 
