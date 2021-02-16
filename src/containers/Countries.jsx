@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const Countries = () => {
   return (
@@ -9,7 +9,10 @@ const Countries = () => {
       </div>
 
       <div className='countries'>
-        Countries
+        <div className='search'>
+          <h3>Find Countries</h3>
+          <input type='text' />
+        </div>
       </div>
     </>
   )
