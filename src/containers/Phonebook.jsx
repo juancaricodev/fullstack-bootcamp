@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import Searchbar from '../components/phonebook/Searchbar'
+
 const INITIAL_STATE = [
   { name: 'Arto Hellas', phone: '040-123456' },
   { name: 'Ada Lovelace', phone: '39-44-5323523' },
@@ -41,6 +43,7 @@ const Phonebook = () => {
 
     setNewName('')
     setNewPhone('')
+    setEmpty(false)
   }
 
   const handleNameChange = (e) => {
@@ -91,7 +94,7 @@ const Phonebook = () => {
       <div className='phonebook'>
         <h2>Phonebook</h2>
 
-        <form onSubmit={handleSearchSubmit}>
+        {/* <form onSubmit={handleSearchSubmit}>
           <input
             type='text'
             placeholder='Search by name'
@@ -99,10 +102,16 @@ const Phonebook = () => {
             onChange={handleNameSearch}
           />
           <button type='submit'>Search</button>
-        </form>
+        </form> */}
+
+        <Searchbar
+          submit={handleSearchSubmit}
+          value={newSearch}
+          change={handleNameSearch}
+        />
 
         <strong>{match ? '' : 'No match for that search'}</strong>
-        <strong>{empty ? 'Field empty' : ''}</strong>
+        <strong>{empty ? 'Search field is empty' : ''}</strong>
 
         <h3>Add New</h3>
 
