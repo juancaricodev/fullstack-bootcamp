@@ -52,16 +52,14 @@ const Phonebook = () => {
   const handleSearchSubmit = (e) => {
     e.preventDefault()
 
-    const personsLower = persons.map((person) => person.name.toLowerCase())
+    const newArray = [...persons]
 
     const searchLower = newSearch.toLowerCase()
 
-    const filterPersons = personsLower.filter((person) => person === searchLower)
+    const filterPersons = newArray.filter((person) => person.name.toLowerCase().includes(searchLower))
 
     setFilteredData(filterPersons)
 
-    console.log('newSearch lower:', searchLower)
-    console.log('persons lower:', personsLower)
     console.log('filter:', filterPersons)
   }
 
@@ -120,27 +118,31 @@ const Phonebook = () => {
           </div>
         </form>
 
-        <h3>Numbers {filteredData.length > 0 ? `- filtered by: ${newSearch}` : ''}</h3>
-
         {
           filteredData.length > 0
             ? (
-              <ul>
-                {filteredData.map((person) => (
-                  <li key={person.name}>
-                    {person.name} {person.phone ? `-  ${person.phone}` : ''}
-                  </li>
-                ))}
-                <button type='button' onClick={handleShowAll}>Show All</button>
-              </ul>
+              <>
+                <h3>Numbers - filtered by: {newSearch}</h3>
+                <ul>
+                  {filteredData.map((person) => (
+                    <li key={person.name}>
+                      {person.name} {person.phone ? `-  ${person.phone}` : ''}
+                    </li>
+                  ))}
+                  <button type='button' onClick={handleShowAll}>Show All</button>
+                </ul>
+              </>
             ) : (
-              <ul>
-                {persons.map((person) => (
-                  <li key={person.name}>
-                    {person.name} {person.phone ? `-  ${person.phone}` : ''}
-                  </li>
-                ))}
-              </ul>
+              <>
+                <h3>Numbers</h3>
+                <ul>
+                  {persons.map((person) => (
+                    <li key={person.name}>
+                      {person.name} {person.phone ? `-  ${person.phone}` : ''}
+                    </li>
+                  ))}
+                </ul>
+              </>
             )
         }
       </div>
