@@ -1,5 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
+import axios from 'axios'
 import '@styles/containers/Notes.scss'
 
 const noteList = [
@@ -24,10 +25,19 @@ const noteList = [
 ]
 
 const Notes = () => {
-  const [notes, setNotes] = useState(noteList)
+  const [notes, setNotes] = useState([])
   const [newNote, setNewNote] = useState('')
   const [showAll, setShowAll] = useState(true)
   const [showEmpty, setShowEmpty] = useState(false)
+
+  useEffect(() => {
+    const eventHandler = (response) => {
+      setNotes(response.data)
+    }
+
+    const promise = axios.get('http://localhost:5000/notes')
+    promise.then(eventHandler)
+  }, [])
 
   const notesToShow = showAll
     ? notes
