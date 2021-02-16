@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import NewPeople from '../components/phonebook/NewPeople'
+import Numbers from '../components/phonebook/Numbers'
 
 import Searchbar from '../components/phonebook/Searchbar'
 
@@ -148,20 +149,26 @@ const Phonebook = () => {
           phoneChange={handlePhoneChange}
         />
 
+        {/* <>
+          <h3>Numbers - filtered by: {newSearch}</h3>
+          <ul>
+            {filteredData.map((person) => (
+              <li key={person.name}>
+                {person.name} {person.phone ? `-  ${person.phone}` : ''}
+              </li>
+            ))}
+            <button type='button' onClick={handleShowAll}>Show All</button>
+          </ul>
+        </> */}
+
         {
           filteredData.length > 0
             ? (
-              <>
-                <h3>Numbers - filtered by: {newSearch}</h3>
-                <ul>
-                  {filteredData.map((person) => (
-                    <li key={person.name}>
-                      {person.name} {person.phone ? `-  ${person.phone}` : ''}
-                    </li>
-                  ))}
-                  <button type='button' onClick={handleShowAll}>Show All</button>
-                </ul>
-              </>
+              <Numbers
+                newSearch={newSearch}
+                filteredData={filteredData}
+                handleShowAll={handleShowAll}
+              />
             ) : (
               <>
                 <h3>Numbers</h3>
