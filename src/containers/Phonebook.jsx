@@ -18,7 +18,7 @@ const Phonebook = () => {
   const [newSearch, setNewSearch] = useState('')
   const [filteredData, setFilteredData] = useState([])
   const [match, setMatch] = useState(true)
-  // const [empty, setEmpty] = useState(false)
+  const [empty, setEmpty] = useState(false)
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -66,6 +66,9 @@ const Phonebook = () => {
       ? setMatch(true)
       : setMatch(false)
 
+    newSearch.length > 0
+      ? setEmpty(false)
+      : setEmpty(true)
   }
 
   const handleNameSearch = (e) => {
@@ -75,6 +78,7 @@ const Phonebook = () => {
   const handleShowAll = () => {
     setFilteredData([])
     setNewSearch('')
+    setEmpty(false)
   }
 
   return (
@@ -98,7 +102,7 @@ const Phonebook = () => {
         </form>
 
         <strong>{match ? '' : 'No match for that search'}</strong>
-        {/* <strong>{match ? '' : 'Field empty'}</strong> */}
+        <strong>{empty ? 'Field empty' : ''}</strong>
 
         <h3>Add New</h3>
 
