@@ -1,9 +1,11 @@
 import React, { useState } from 'react'
 
-import NewPeople from '../components/phonebook/NewPeople'
-import Numbers from '../components/phonebook/Numbers'
-import NumbersFiltered from '../components/phonebook/NumbersFiltered'
-import Searchbar from '../components/phonebook/Searchbar'
+import NewPeople from '@components/phonebook/NewPeople'
+import Numbers from '@components/phonebook/Numbers'
+import NumbersFiltered from '@components/phonebook/NumbersFiltered'
+import Searchbar from '@components/phonebook/Searchbar'
+
+import '@styles/containers/Phonebook.scss'
 
 const INITIAL_STATE = [
   { name: 'Arto Hellas', phone: '040-123456' },
@@ -101,10 +103,9 @@ const Phonebook = () => {
           submit={handleSearchSubmit}
           value={newSearch}
           change={handleNameSearch}
+          match={match}
+          empty={empty}
         />
-
-        <strong>{match ? '' : 'No match for that search'}</strong>
-        <strong>{empty ? 'Search field is empty' : ''}</strong>
 
         <h3>Add New</h3>
 

@@ -2,7 +2,7 @@ import React from 'react'
 
 const NewPeople = ({ submit, name, nameChange, phone, phoneChange }) => {
   return (
-    <form onSubmit={submit}>
+    <form className='new-people-form' onSubmit={submit}>
       <div>
         <input
           type='text'
