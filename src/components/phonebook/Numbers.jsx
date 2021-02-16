@@ -1,16 +1,15 @@
 import React from 'react'
 
-const Numbers = ({ newSearch, filteredData, handleShowAll }) => {
+const Numbers = ({ persons }) => {
   return (
     <>
-      <h3>Numbers - filtered by: {newSearch}</h3>
+      <h3>Numbers</h3>
       <ul>
-        {filteredData.map((person) => (
+        {persons.map((person) => (
           <li key={person.name}>
             {person.name} {person.phone ? `-  ${person.phone}` : ''}
           </li>
         ))}
-        <button type='button' onClick={handleShowAll}>Show All</button>
       </ul>
     </>
   )

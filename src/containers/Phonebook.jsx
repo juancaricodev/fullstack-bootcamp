@@ -119,14 +119,13 @@ const Phonebook = () => {
         {
           filteredData.length > 0
             ? (
-              <Numbers
+              <NumbersFiltered
                 newSearch={newSearch}
                 filteredData={filteredData}
                 handleShowAll={handleShowAll}
               />
             ) : (
-
-              <NumbersFiltered persons={persons} />
+              <Numbers persons={persons} />
             )
         }
       </div>
