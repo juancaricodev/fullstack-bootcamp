@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
+
 import NewPeople from '../components/phonebook/NewPeople'
 import Numbers from '../components/phonebook/Numbers'
 import NumbersFiltered from '../components/phonebook/NumbersFiltered'
-
 import Searchbar from '../components/phonebook/Searchbar'
 
 const INITIAL_STATE = [
@@ -97,16 +97,6 @@ const Phonebook = () => {
       <div className='phonebook'>
         <h2>Phonebook</h2>
 
-        {/* <form onSubmit={handleSearchSubmit}>
-          <input
-            type='text'
-            placeholder='Search by name'
-            value={newSearch}
-            onChange={handleNameSearch}
-          />
-          <button type='submit'>Search</button>
-        </form> */}
-
         <Searchbar
           submit={handleSearchSubmit}
           value={newSearch}
@@ -118,30 +108,6 @@ const Phonebook = () => {
 
         <h3>Add New</h3>
 
-        {/* <form onSubmit={handleSubmit}>
-          <div>
-            <input
-              type='text'
-              value={newName}
-              onChange={handleNameChange}
-              placeholder='Name'
-            />
-          </div>
-
-          <div>
-            <input
-              type='text'
-              value={newPhone}
-              onChange={handlePhoneChange}
-              placeholder='Phone'
-            />
-          </div>
-
-          <div>
-            <button type='submit'>Add</button>
-          </div>
-        </form> */}
-
         <NewPeople
           submit={handleSubmit}
           name={newName}
@@ -149,18 +115,6 @@ const Phonebook = () => {
           phone={newPhone}
           phoneChange={handlePhoneChange}
         />
-
-        {/* <>
-          <h3>Numbers - filtered by: {newSearch}</h3>
-          <ul>
-            {filteredData.map((person) => (
-              <li key={person.name}>
-                {person.name} {person.phone ? `-  ${person.phone}` : ''}
-              </li>
-            ))}
-            <button type='button' onClick={handleShowAll}>Show All</button>
-          </ul>
-        </> */}
 
         {
           filteredData.length > 0
@@ -175,17 +129,6 @@ const Phonebook = () => {
               <NumbersFiltered persons={persons} />
             )
         }
-
-        {/* <>
-          <h3>Numbers</h3>
-          <ul>
-            {persons.map((person) => (
-              <li key={person.name}>
-                {person.name} {person.phone ? `-  ${person.phone}` : ''}
-              </li>
-            ))}
-          </ul>
-        </> */}
       </div>
     </>
   )
