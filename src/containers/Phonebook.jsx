@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import NewPeople from '../components/phonebook/NewPeople'
 
 import Searchbar from '../components/phonebook/Searchbar'
 
@@ -115,7 +116,7 @@ const Phonebook = () => {
 
         <h3>Add New</h3>
 
-        <form onSubmit={handleSubmit}>
+        {/* <form onSubmit={handleSubmit}>
           <div>
             <input
               type='text'
@@ -137,7 +138,15 @@ const Phonebook = () => {
           <div>
             <button type='submit'>Add</button>
           </div>
-        </form>
+        </form> */}
+
+        <NewPeople
+          submit={handleSubmit}
+          name={newName}
+          nameChange={handleNameChange}
+          phone={newPhone}
+          phoneChange={handlePhoneChange}
+        />
 
         {
           filteredData.length > 0
