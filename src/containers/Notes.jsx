@@ -3,27 +3,6 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import '@styles/containers/Notes.scss'
 
-const noteList = [
-  {
-    content: 'First note',
-    date: 'date',
-    important: 1,
-    id: 1
-  },
-  {
-    content: 'Second note',
-    date: 'date',
-    important: 0,
-    id: 2
-  },
-  {
-    content: 'Third note',
-    date: 'date',
-    important: 1,
-    id: 3
-  }
-]
-
 const Notes = () => {
   const [notes, setNotes] = useState([])
   const [newNote, setNewNote] = useState('')
