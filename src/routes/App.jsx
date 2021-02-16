@@ -7,6 +7,7 @@ import {
 } from 'react-router-dom'
 
 import Anecdotes from '@containers/Anecdotes'
+import Countries from '@containers/Countries'
 import Courses from '@containers/Courses'
 import Home from '@containers/Home'
 import Notes from '@containers/Notes'
@@ -26,6 +27,7 @@ const App = () => {
           <Route exact path='/anecdotes' component={Anecdotes} />
           <Route exact path='/notes' component={Notes} />
           <Route exact path='/phonebook' component={Phonebook} />
+          <Route exact path='/countries' component={Countries} />
           <Route component={NotFound} />
         </Switch>
       </Layout>
