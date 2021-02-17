@@ -4,7 +4,6 @@ const Countries = () => {
   const [state, setState] = useState([])
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState([])
-  // const [match, setMatch] = useState(true)
 
   useEffect(() => {
     fetch('https://restcountries.eu/rest/v2/all')
@@ -20,15 +19,15 @@ const Countries = () => {
 
   const handleInputChange = (e) => {
     setSearch(e.target.value)
+  }
 
+  useEffect(() => {
     const newArray = [...state]
     const searchLower = search.toLowerCase()
     const filteredCountries = newArray.filter(country => country.name.toLowerCase().includes(searchLower))
 
-    search.length === ''
-      ? setFilter([])
-      : setFilter(filteredCountries)
-  }
+    setFilter(filteredCountries)
+  }, [search])
 
   return (
     <>
@@ -52,13 +51,17 @@ const Countries = () => {
         {
           filter.length > 0
             ? (
-              <ul>
-                {filter.map(country => (
-                  <li key={country.name}>{country.name}</li>
-                ))}
-              </ul>
+              filter.length > 10
+                ? <h3>Too many matches, specify another filter</h3>
+                : (
+                  <ul>
+                    {filter.map(country => (
+                      <li key={country.name}>{country.name}</li>
+                    ))}
+                  </ul>
+                )
             )
-            : <h3>No data filtered yet</h3>
+            : <h3>No match for this search</h3>
         }
       </div>
     </>
