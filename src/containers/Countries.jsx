@@ -1,18 +1,40 @@
 import React, { useState, useEffect } from 'react'
 
+import axios from 'axios'
+
 import '@styles/containers/Countries.scss'
 
 const Countries = () => {
   const [state, setState] = useState([])
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState([])
+  // const [weather, setWeather] = useState([])
 
   useEffect(() => {
     fetch('https://restcountries.eu/rest/v2/all')
       .then(res => res.json())
       .then(res => setState(res))
       .catch(err => console.error('Error =>', err))
+
+    // if (filter.length === 1) {
+    //   const ACCESS_KEY = process.env.WEATHERSTACK_KEY
+    //   const query = filter[0].name
+
+    //   console.log(query)
+
+    //   // axios.get(`http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&query=${query}`)
+    //   //   .then(res => console.log(res))
+    //   //   .catch(err => console.error(err))
+    // }
   }, [])
+
+  // useEffect(() => {
+  //   const query = [...filter]
+  //   console.log(query)
+  //   return () => {
+  //     setWeather([])
+  //   }
+  // }, [filter.length === 1])
 
   const handleSubmit = (e) => {
     e.preventDefault()
