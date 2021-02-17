@@ -15,12 +15,14 @@ const Notes = () => {
     }
 
     const promise = axios.get('http://localhost:5000/notes')
-    promise.then(eventHandler)
+    promise
+      .then(eventHandler)
+      .catch(err => console.error('Error =>', err))
   }, [])
 
   const notesToShow = showAll
     ? notes
-    : notes.filter((note) => note.important === 1)
+    : notes.filter(note => note.important === 1)
 
   const addNote = (e) => {
     e.preventDefault()
@@ -62,7 +64,7 @@ const Notes = () => {
         </button>
 
         <ul>
-          {notesToShow.map((note) => (
+          {notesToShow.map(note => (
             <li key={note.id}>{note.content}</li>
           ))}
         </ul>

@@ -5,7 +5,7 @@ const Numbers = ({ persons }) => {
     <>
       <h3>Numbers</h3>
       <ul>
-        {persons.map((person) => (
+        {persons.map(person => (
           <li key={person.name}>
             {person.name} {person.number ? `-  ${person.number}` : ''}
           </li>

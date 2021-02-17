@@ -56,7 +56,7 @@ const Courses = () => {
       </div>
 
       <ul>
-        {courses.map((course) => (
+        {courses.map(course => (
           <li key={course.id}>
             <Course courses={course} />
           </li>

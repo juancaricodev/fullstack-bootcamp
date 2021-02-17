@@ -21,6 +21,7 @@ const Phonebook = () => {
     fetchingData
       .then(res => res.json())
       .then(res => setPersons(res))
+      .catch(err => console.error('Error =>', err))
   }, [])
 
   const handleSubmit = (e) => {
