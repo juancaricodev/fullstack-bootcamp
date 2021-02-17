@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from 'react'
 
 const Countries = () => {
+  const [state, setState] = useState([])
   const [search, setSearch] = useState('')
+
+  useEffect(() => {
+    fetch('https://restcountries.eu/rest/v2/all')
+      .then(res => res.json())
+      .then(res => setState(res))
+      .catch(err => console.error('Error =>', err))
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault()
