@@ -1,0 +1,28 @@
+.countries {
+  margin-top: 20px;
+
+  form {
+    margin-bottom: 20px;
+  }
+
+  ul {
+    li {
+      list-style: upper-roman inside;
+    }
+    .single {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      list-style: none;
+
+      li {
+        padding-left: 20px;
+        list-style: inside;
+      }
+
+      img {
+        width: 300px;
+      }
+    }
+  }
+}

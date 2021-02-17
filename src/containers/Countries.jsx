@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import '@styles/containers/Countries.scss'
+
 const Countries = () => {
   const [state, setState] = useState([])
   const [search, setSearch] = useState('')
@@ -37,7 +39,7 @@ const Countries = () => {
       </div>
 
       <div className='countries'>
-        <h3>Find Countries</h3>
+        <h1>Find Countries</h1>
 
         <form className='search' onSubmit={handleSubmit}>
           <input
@@ -58,7 +60,7 @@ const Countries = () => {
                     ? (
                       <ul>
                         {filter.map(country => (
-                          <li key={country.name}>
+                          <li key={country.name} className='single'>
                             <h1>{country.name}</h1>
                             <p>Capital: {country.capital}</p>
                             <p>Population: {country.population}</p>
