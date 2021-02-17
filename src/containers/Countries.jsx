@@ -31,6 +31,8 @@ const Countries = () => {
     setFilter(filteredCountries)
   }, [search])
 
+  const handleShow = country => () => setFilter([country])
+
   return (
     <>
       <div className='part-tag'>
@@ -77,7 +79,10 @@ const Countries = () => {
                     ) : (
                       <ul>
                         {filter.map(country => (
-                          <li key={country.name}>{country.name}</li>
+                          <li key={country.name}>
+                            {country.name}
+                            <button type='button' onClick={handleShow(country)}>Show</button>
+                          </li>
                         ))}
                       </ul>
                     )
