@@ -5,7 +5,7 @@ const NumbersFiltered = ({ newSearch, filteredData, handleShowAll }) => {
     <div className='filtered-container'>
       <h3>Numbers - filtered by: {newSearch}</h3>
       <ul>
-        {filteredData.map((person) => (
+        {filteredData.map(person => (
           <li key={person.name}>
             {person.name} {person.number ? `-  ${person.number}` : ''}
           </li>

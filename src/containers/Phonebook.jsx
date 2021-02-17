@@ -31,7 +31,7 @@ const Phonebook = () => {
       number: newPhone
     }
 
-    const nameMatch = persons.find((person) => person.name === newPerson.name)
+    const nameMatch = persons.find(person => person.name === newPerson.name)
 
     if (newPerson.name === '' || newPerson.number === '') {
       alert('All fields should be filled')
@@ -62,7 +62,7 @@ const Phonebook = () => {
 
     const searchLower = newSearch.toLowerCase()
 
-    const filterPersons = newArray.filter((person) => person.name.toLowerCase().includes(searchLower))
+    const filterPersons = newArray.filter(person => person.name.toLowerCase().includes(searchLower))
 
     if (newSearch.length > 0) {
       setFilteredData(filterPersons)
