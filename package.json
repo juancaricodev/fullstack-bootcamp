@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "webpack --mode production",
+    "build:prod":	"webpack --mode production --env PUBLIC_PATH=$PUBLIC_PATH --config webpack.config.js",
     "start": "webpack serve --mode development",
     "server": "json-server -p5000 --watch db.json"
   },
@@ -29,6 +30,7 @@
     "@babel/preset-react": "^7.12.13",
     "babel-loader": "^8.2.2",
     "css-loader": "^5.0.1",
+    "dotenv-webpack": "^6.0.0",
     "html-loader": "^1.3.2",
     "html-webpack-plugin": "^5.0.0",
     "json-server": "^0.16.3",
