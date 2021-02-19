@@ -8,7 +8,7 @@ const Countries = () => {
   const [state, setState] = useState([])
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState([])
-  // const [weather, setWeather] = useState([])
+  const [weather, setWeather] = useState('')
 
   useEffect(() => {
     fetch('https://restcountries.eu/rest/v2/all')
@@ -26,15 +26,20 @@ const Countries = () => {
     //   //   .then(res => console.log(res))
     //   //   .catch(err => console.error(err))
     // }
+
+    // if (filter.length === 1) {
+    //   const query = [...filter]
+    //   setWeather(query.name)
+    // }
   }, [])
 
-  // useEffect(() => {
-  //   const query = [...filter]
-  //   console.log(query)
-  //   return () => {
-  //     setWeather([])
-  //   }
-  // }, [filter.length === 1])
+  useEffect(() => {
+    if (filter.length === 1) {
+      const query = [...filter]
+      setWeather(query[0].name)
+      console.log(query[0].name)
+    }
+  }, [filter])
 
   const handleSubmit = (e) => {
     e.preventDefault()
