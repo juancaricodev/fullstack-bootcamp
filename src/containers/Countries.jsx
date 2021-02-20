@@ -15,29 +15,20 @@ const Countries = () => {
       .then(res => res.json())
       .then(res => setState(res))
       .catch(err => console.error('Error =>', err))
-
-    // if (filter.length === 1) {
-    //   const ACCESS_KEY = process.env.WEATHERSTACK_KEY
-    //   const query = filter[0].name
-
-    //   console.log(query)
-
-    //   // axios.get(`http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&query=${query}`)
-    //   //   .then(res => console.log(res))
-    //   //   .catch(err => console.error(err))
-    // }
-
-    // if (filter.length === 1) {
-    //   const query = [...filter]
-    //   setWeather(query.name)
-    // }
   }, [])
+
+  const fetchWeather = () => {
+    setWeather(filter[0].name)
+
+    const ACCESS_KEY = process.env.WEATHERSTACK_KEY
+    const data = axios.get(`http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&query=${weather}`)
+    data.then(res => console.log(res.data))
+      .catch(err => console.error(err))
+  }
 
   useEffect(() => {
     if (filter.length === 1) {
-      const query = [...filter]
-      setWeather(query[0].name)
-      console.log(query[0].name)
+      fetchWeather()
     }
   }, [filter])
 
