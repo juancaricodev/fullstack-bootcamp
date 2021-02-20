@@ -32,7 +32,9 @@ const Countries = () => {
   }, [filter])
 
   useEffect(() => {
-    fetchWeather()
+    if (weather.length > 0) {
+      fetchWeather()
+    }
   }, [weather])
 
   const handleSubmit = (e) => {
