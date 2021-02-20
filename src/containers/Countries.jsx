@@ -18,7 +18,6 @@ const Countries = () => {
   }, [])
 
   const fetchWeather = () => {
-    // setWeather(filter[0].name)
     const ACCESS_KEY = process.env.WEATHERSTACK_KEY
 
     const data = axios.get(`http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&query=${weather}`)
@@ -29,8 +28,6 @@ const Countries = () => {
   useEffect(() => {
     if (filter.length === 1) {
       setWeather(filter[0].name)
-
-      // fetchWeather()
     }
   }, [filter])
 
