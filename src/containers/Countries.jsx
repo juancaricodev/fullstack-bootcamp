@@ -18,9 +18,9 @@ const Countries = () => {
   }, [])
 
   const fetchWeather = () => {
-    setWeather(filter[0].name)
-
+    // setWeather(filter[0].name)
     const ACCESS_KEY = process.env.WEATHERSTACK_KEY
+
     const data = axios.get(`http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&query=${weather}`)
     data.then(res => console.log(res.data))
       .catch(err => console.error(err))
@@ -28,13 +28,18 @@ const Countries = () => {
 
   useEffect(() => {
     if (filter.length === 1) {
-      fetchWeather()
+      setWeather(filter[0].name)
+
+      // fetchWeather()
     }
   }, [filter])
 
+  useEffect(() => {
+    fetchWeather()
+  }, [weather])
+
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log('form submited')
   }
 
   const handleInputChange = (e) => {
