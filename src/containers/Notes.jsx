@@ -9,12 +9,14 @@ const Notes = () => {
   const [showAll, setShowAll] = useState(true)
   const [showEmpty, setShowEmpty] = useState(false)
 
+  const URL = 'http://localhost:5000/notes'
+
   useEffect(() => {
     const eventHandler = (response) => {
       setNotes(response.data)
     }
 
-    const promise = axios.get('http://localhost:5000/notes')
+    const promise = axios.get(URL)
     promise
       .then(eventHandler)
       .catch(err => console.error('Error =>', err))
@@ -22,21 +24,22 @@ const Notes = () => {
 
   const notesToShow = showAll
     ? notes
-    : notes.filter(note => note.important === 1)
+    : notes.filter(note => note.important === true)
 
   const addNote = (e) => {
     e.preventDefault()
 
     const noteObject = {
+      id: notes.length + 1,
       content: newNote,
       date: new Date().toISOString(),
-      important: Math.random() < 0.5,
-      id: notes.length + 1
+      important: Math.random() < 0.5
     }
 
     if (newNote !== '') {
-      setNotes(notes.concat(noteObject))
-      // setNotes([...notes, noteObject])
+      axios
+        .post(URL, noteObject)
+        .then(res => setNotes(notes.concat(res.data)))
       setShowEmpty(false)
     } else {
       setShowEmpty(true)
