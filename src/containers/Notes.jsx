@@ -33,7 +33,8 @@ const Notes = () => {
       id: notes.length + 1,
       content: newNote,
       date: new Date().toISOString(),
-      important: Math.random() < 0.5
+      important: Math.random() < 0.5,
+      deleted: false
     }
 
     if (newNote !== '') {
@@ -66,6 +67,20 @@ const Notes = () => {
       .catch(err => console.error(`error while updating importance of id ${id} => ${err}`))
   }
 
+  const handleDelete = (id) => {
+    const urlId = `${URL}/${id}`
+    const note = notes.find(n => n.id === id)
+
+    const deletedNote = { ...note, deleted: true }
+
+    axios
+      .put(urlId, deletedNote)
+      .then((res) => {
+        setNotes(notes.map(note => (note.id !== id ? note : res.data)))
+      })
+      .catch(err => console.error(`error deleting note with id ${id} => ${err}`))
+  }
+
   return (
     <>
       <div className='part-tag'>
@@ -83,11 +98,22 @@ const Notes = () => {
         <ul>
           {notesToShow.map(note => (
             <li key={note.id}>
-              {note.important ? <span className='note-important' /> : null}
-              <p>{note.content}</p>
-              <button type='button' onClick={() => handleImportance(note.id)}>
-                {note.important ? 'Not important' : 'Make important'}
-              </button>
+              {
+                note.deleted === false
+                  ? (
+                    <>
+                      {note.important ? <span className='note-important' /> : null}
+
+                      <p>{note.content}</p>
+
+                      <button type='button' onClick={() => handleImportance(note.id)}>
+                        {note.important ? 'Not important' : 'Make important'}
+                      </button>
+
+                      <button type='button' className='note-delete' onClick={() => handleDelete(note.id)}>X</button>
+                    </>
+                  ) : null
+              }
             </li>
           ))}
         </ul>
