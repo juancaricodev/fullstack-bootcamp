@@ -9,6 +9,7 @@ const Countries = () => {
   const [search, setSearch] = useState('')
   const [filter, setFilter] = useState([])
   const [weather, setWeather] = useState('')
+  const [weatherItem, setWeatherItem] = useState([])
 
   useEffect(() => {
     fetch('https://restcountries.eu/rest/v2/all')
@@ -21,7 +22,7 @@ const Countries = () => {
     const ACCESS_KEY = process.env.WEATHERSTACK_KEY
 
     const data = axios.get(`http://api.weatherstack.com/current?access_key=${ACCESS_KEY}&query=${weather}`)
-    data.then(res => console.log(res.data))
+    data.then(res => setWeatherItem([res.data]))
       .catch(err => console.error(err))
   }
 
@@ -95,6 +96,26 @@ const Countries = () => {
                               ))}
                             </ul>
                             <img src={country.flag} alt={`${country.demonym} flag`} />
+
+                            {
+                              weatherItem.length > 0
+                                && (
+                                  <>
+                                    <h2>Weather in {weatherItem[0].location.country}</h2>
+                                    <div>
+                                      <strong>Temperature:</strong>
+                                      <p>{weatherItem[0].current.temperature} °C</p>
+                                    </div>
+                                    <div>
+                                      <img src={weatherItem[0].current.weather_icons[0]} alt={weatherItem[0].current.weather_descriptions} />
+                                    </div>
+                                    <div>
+                                      <strong>Wind speed:</strong>
+                                      <p>{weatherItem[0].current.wind_speed} km/h, direction {weatherItem[0].current.wind_dir}</p>
+                                    </div>
+                                  </>
+                                )
+                            }
                           </li>
                         ))}
                       </ul>
