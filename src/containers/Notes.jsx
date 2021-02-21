@@ -97,24 +97,20 @@ const Notes = () => {
 
         <ul>
           {notesToShow.map(note => (
-            <li key={note.id}>
-              {
-                note.deleted === false
-                  ? (
-                    <>
-                      {note.important ? <span className='note-important' /> : null}
+            note.deleted === false
+            && (
+              <li key={note.id}>
+                {note.important ? <span className='note-important' /> : null}
 
-                      <p>{note.content}</p>
+                <p>{note.content}</p>
 
-                      <button type='button' onClick={() => handleImportance(note.id)}>
-                        {note.important ? 'Not important' : 'Make important'}
-                      </button>
+                <button type='button' onClick={() => handleImportance(note.id)}>
+                  {note.important ? 'Not important' : 'Make important'}
+                </button>
 
-                      <button type='button' className='note-delete' onClick={() => handleDelete(note.id)}>X</button>
-                    </>
-                  ) : null
-              }
-            </li>
+                <button type='button' className='note-delete' onClick={() => handleDelete(note.id)}>X</button>
+              </li>
+            )
           ))}
         </ul>
 
