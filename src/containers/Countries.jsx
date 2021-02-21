@@ -100,20 +100,18 @@ const Countries = () => {
                             {
                               weatherItem.length > 0
                                 && (
-                                  <>
+                                  <div className='weather'>
                                     <h2>Weather in {weatherItem[0].location.country}</h2>
-                                    <div>
-                                      <strong>Temperature:</strong>
-                                      <p>{weatherItem[0].current.temperature} °C</p>
+                                    <div className='weather-row'>
+                                      <p><strong>Temperature:</strong> {weatherItem[0].current.temperature} °C</p>
                                     </div>
-                                    <div>
+                                    <div className='weather-row'>
                                       <img src={weatherItem[0].current.weather_icons[0]} alt={weatherItem[0].current.weather_descriptions} />
                                     </div>
-                                    <div>
-                                      <strong>Wind speed:</strong>
-                                      <p>{weatherItem[0].current.wind_speed} km/h, direction {weatherItem[0].current.wind_dir}</p>
+                                    <div className='weather-row'>
+                                      <p><strong>Wind speed:</strong> {weatherItem[0].current.wind_speed} km/h, direction {weatherItem[0].current.wind_dir}</p>
                                     </div>
-                                  </>
+                                  </div>
                                 )
                             }
                           </li>
