@@ -68,7 +68,10 @@ const Notes = () => {
 
         <ul>
           {notesToShow.map(note => (
-            <li key={note.id}>{note.content}</li>
+            <li key={note.id}>
+              {note.important ? <span className='note-important' /> : null}
+              <p>{note.content}</p>
+            </li>
           ))}
         </ul>
 

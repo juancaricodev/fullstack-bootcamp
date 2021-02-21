@@ -7,8 +7,24 @@
     margin-bottom: 20px;
   }
 
-  li {
-    list-style: lower-greek inside;
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      .note-important {
+        width: 12px;
+        height: 12px;
+        color: $color-white;
+        border-radius: 50%;
+        background-color: $color-green
+      }
+    }
   }
 
   form {
