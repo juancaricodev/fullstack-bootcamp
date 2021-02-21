@@ -3,6 +3,9 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 
 import '@styles/containers/Countries.scss'
+import Country from '@components/countries/Country'
+import CountryList from '@components/countries/CountryList'
+import SearchBar from '@components/countries/SearchBar'
 
 const Countries = () => {
   const [state, setState] = useState([])
@@ -66,14 +69,11 @@ const Countries = () => {
       <div className='countries'>
         <h1>Find Countries</h1>
 
-        <form className='search' onSubmit={handleSubmit}>
-          <input
-            type='text'
-            value={search}
-            onChange={handleInputChange}
-          />
-          {/* <button type='submit'>Search</button> */}
-        </form>
+        <SearchBar
+          handleSubmit={handleSubmit}
+          search={search}
+          handleInputChange={handleInputChange}
+        />
 
         {
           filter.length > 0
@@ -85,45 +85,26 @@ const Countries = () => {
                     ? (
                       <ul>
                         {filter.map(country => (
-                          <li key={country.name} className='single'>
-                            <h1>{country.name}</h1>
-                            <p>Capital: {country.capital}</p>
-                            <p>Population: {country.population}</p>
-                            <h3>Languages</h3>
-                            <ul>
-                              {country.languages.map(language => (
-                                <li key={language.name}>{language.name}</li>
-                              ))}
-                            </ul>
-                            <img src={country.flag} alt={`${country.demonym} flag`} />
-
-                            {
-                              weatherItem.length > 0
-                                && (
-                                  <div className='weather'>
-                                    <h2>Weather in {weatherItem[0].location.country}</h2>
-                                    <div className='weather-row'>
-                                      <p><strong>Temperature:</strong> {weatherItem[0].current.temperature} °C</p>
-                                    </div>
-                                    <div className='weather-row'>
-                                      <img src={weatherItem[0].current.weather_icons[0]} alt={weatherItem[0].current.weather_descriptions} />
-                                    </div>
-                                    <div className='weather-row'>
-                                      <p><strong>Wind speed:</strong> {weatherItem[0].current.wind_speed} km/h, direction {weatherItem[0].current.wind_dir}</p>
-                                    </div>
-                                  </div>
-                                )
-                            }
-                          </li>
+                          <Country
+                            key={country.name}
+                            name={country.name}
+                            capital={country.capital}
+                            population={country.population}
+                            languages={country.languages}
+                            flag={country.flag}
+                            demonym={country.demonym}
+                            weatherItem={weatherItem}
+                          />
                         ))}
                       </ul>
                     ) : (
-                      <ul>
+                      <ul className='list-multiple'>
                         {filter.map(country => (
-                          <li key={country.name}>
-                            {country.name}
-                            <button type='button' onClick={handleShow(country)}>Show</button>
-                          </li>
+                          <CountryList
+                            key={country.name}
+                            name={country.name}
+                            handleShow={handleShow(country)}
+                          />
                         ))}
                       </ul>
                     )

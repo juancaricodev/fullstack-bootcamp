@@ -2,7 +2,12 @@
   margin-top: 20px;
 
   form {
+    display: flex;
+    gap: 10px;
     margin-bottom: 20px;
+    button {
+      @include btn($color-grey-3, $color-grey-3, $color-white);
+    }
   }
 
   ul {
@@ -38,6 +43,19 @@
           width: 100px;
         }
       }
+    }
+
+  }
+
+  .list-multiple {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    li {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
     }
   }
 }
