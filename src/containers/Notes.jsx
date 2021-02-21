@@ -52,6 +52,20 @@ const Notes = () => {
     setNewNote(event.target.value)
   }
 
+  const handleImportance = (id) => {
+    const urlId = `${URL}/${id}`
+    const note = notes.find(n => n.id === id)
+
+    const changedNote = { ...note, important: !note.important }
+
+    axios
+      .put(urlId, changedNote)
+      .then((res) => {
+        setNotes(notes.map(note => (note.id !== id ? note : res.data)))
+      })
+      .catch(err => console.error(`error while updating importance of id ${id} => ${err}`))
+  }
+
   return (
     <>
       <div className='part-tag'>
@@ -71,6 +85,9 @@ const Notes = () => {
             <li key={note.id}>
               {note.important ? <span className='note-important' /> : null}
               <p>{note.content}</p>
+              <button type='button' onClick={() => handleImportance(note.id)}>
+                {note.important ? 'Not important' : 'Make important'}
+              </button>
             </li>
           ))}
         </ul>

@@ -24,6 +24,10 @@
         border-radius: 50%;
         background-color: $color-green
       }
+
+      button {
+        @include btn($color-black, $color-black, $color-white);
+      }
     }
   }
 
