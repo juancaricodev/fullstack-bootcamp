@@ -30,7 +30,7 @@ const Country = (props) => {
         weatherItem.length > 0
           && (
             <Weather
-              country={weatherItem[0].location.country}
+              country={weatherItem[0].location.name}
               temperature={weatherItem[0].current.temperature}
               icon={weatherItem[0].current.weather_icons[0]}
               iconDescription={weatherItem[0].current.weather_descriptions}

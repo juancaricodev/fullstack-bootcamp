@@ -9,7 +9,6 @@ const SearchBar = ({ handleSubmit, search, handleInputChange }) => {
         onChange={handleInputChange}
         placeholder='Search for a country'
       />
-      <button type='submit'>Search</button>
     </form>
   )
 }

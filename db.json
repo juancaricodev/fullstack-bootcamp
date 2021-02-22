@@ -69,6 +69,13 @@
       "date": "2021-02-21T21:25:43.462Z",
       "important": false,
       "deleted": false
+    },
+    {
+      "id": 11,
+      "content": "Nota en español",
+      "date": "2021-02-21T23:42:21.273Z",
+      "important": true,
+      "deleted": true
     }
   ],
   "persons": [
