@@ -76,6 +76,13 @@
       "date": "2021-02-21T23:42:21.273Z",
       "important": true,
       "deleted": true
+    },
+    {
+      "id": 12,
+      "content": "Note to be deleted",
+      "date": "2021-02-22T23:29:13.956Z",
+      "important": false,
+      "deleted": true
     }
   ],
   "persons": [

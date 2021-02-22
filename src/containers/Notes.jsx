@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
-import noteService from '@services/notes'
+// import axios from 'axios'
 
-import axios from 'axios'
+import noteService from '@services/notes'
 import '@styles/containers/Notes.scss'
 
 const Notes = () => {
@@ -11,15 +11,15 @@ const Notes = () => {
   const [showAll, setShowAll] = useState(true)
   const [showEmpty, setShowEmpty] = useState(false)
 
-  const URL = 'http://localhost:5000/notes'
+  // const URL = 'http://localhost:5000/notes'
 
   useEffect(() => {
     const eventHandler = (response) => {
       setNotes(response.data)
     }
 
-    const promise = axios.get(URL)
-    promise
+    noteService
+      .getAll()
       .then(eventHandler)
       .catch(err => console.error('Error =>', err))
   }, [])
@@ -40,8 +40,8 @@ const Notes = () => {
     }
 
     if (newNote !== '') {
-      axios
-        .post(URL, noteObject)
+      noteService
+        .create(noteObject)
         .then(res => setNotes(notes.concat(res.data)))
       setShowEmpty(false)
     } else {
@@ -56,13 +56,13 @@ const Notes = () => {
   }
 
   const handleImportance = (id) => {
-    const urlId = `${URL}/${id}`
+    // const urlId = `${URL}/${id}`
     const note = notes.find(n => n.id === id)
 
     const changedNote = { ...note, important: !note.important }
 
-    axios
-      .put(urlId, changedNote)
+    noteService
+      .update(id, changedNote)
       .then((res) => {
         setNotes(notes.map(note => (note.id !== id ? note : res.data)))
       })
@@ -70,13 +70,13 @@ const Notes = () => {
   }
 
   const handleDelete = (id) => {
-    const urlId = `${URL}/${id}`
+    // const urlId = `${URL}/${id}`
     const note = notes.find(n => n.id === id)
 
     const deletedNote = { ...note, deleted: true }
 
-    axios
-      .put(urlId, deletedNote)
+    noteService
+      .update(id, deletedNote)
       .then((res) => {
         setNotes(notes.map(note => (note.id !== id ? note : res.data)))
       })
