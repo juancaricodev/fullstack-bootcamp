@@ -20,6 +20,7 @@ module.exports = {
       '@containers': path.resolve(__dirname, 'src/containers'),
       '@layouts': path.resolve(__dirname, 'src/layouts'),
       '@routes': path.resolve(__dirname, 'src/routes'),
+      '@services': path.resolve(__dirname, 'src/services'),
       '@styles': path.resolve(__dirname, 'src/assets/styles'),
       '@fonts': path.resolve(__dirname, 'src/assets/fonts')
     }

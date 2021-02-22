@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import noteService from '@services/notes'
+
 import axios from 'axios'
 import '@styles/containers/Notes.scss'
 
