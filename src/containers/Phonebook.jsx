@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-// import axios from 'axios'
-
 import NewPeople from '@components/phonebook/NewPeople'
 import Numbers from '@components/phonebook/Numbers'
 import NumbersFiltered from '@components/phonebook/NumbersFiltered'
@@ -19,10 +17,7 @@ const Phonebook = () => {
   const [match, setMatch] = useState(true)
   const [empty, setEmpty] = useState(false)
 
-  // const URL = 'http://localhost:5000/persons'
-
   useEffect(() => {
-    // const fetchingData = fetch(URL)
     phonebookService
       .getAll()
       .then(initialPersons => setPersons(initialPersons))
