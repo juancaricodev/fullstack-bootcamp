@@ -1,6 +1,6 @@
 import React from 'react'
 
-const NumbersFiltered = ({ newSearch, filteredData, handleShowAll }) => {
+const NumbersFiltered = ({ newSearch, filteredData, handleShowAll, deleteId }) => {
   return (
     <div className='filtered-container'>
       <h3>Numbers - filtered by: {newSearch}</h3>
@@ -9,6 +9,7 @@ const NumbersFiltered = ({ newSearch, filteredData, handleShowAll }) => {
           !person.deleted && (
             <li key={person.name}>
               {person.name} {person.number ? `-  ${person.number}` : ''}
+              <button type='button' onClick={() => deleteId(person.id)}>Delete</button>
             </li>
           )
         ))}

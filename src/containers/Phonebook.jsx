@@ -59,6 +59,21 @@ const Phonebook = () => {
     setEmpty(false)
   }
 
+  const handleDelete = (id) => {
+    const person = persons.find(p => p.id === id)
+
+    const deletedPerson = { ...person, deleted: true }
+
+    phonebookService
+      .deleteId(id, deletedPerson)
+      .then((newData) => {
+        setPersons(persons.map(person => (person.id !== id ? person : newData)))
+        filteredData.length > 0
+          && setFilteredData(filteredData.map(person => (person.id !== id ? person : newData)))
+      })
+      .catch(err => console.log(`Error deleting person with id ${id} => ${err}`))
+  }
+
   const handleNameChange = (e) => {
     setNewName(e.target.value)
   }
@@ -133,9 +148,10 @@ const Phonebook = () => {
                 newSearch={newSearch}
                 filteredData={filteredData}
                 handleShowAll={handleShowAll}
+                deleteId={id => handleDelete(id)}
               />
             ) : (
-              <Numbers persons={persons} />
+              <Numbers persons={persons} deleteId={id => handleDelete(id)} />
             )
         }
       </div>
