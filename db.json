@@ -83,6 +83,20 @@
       "date": "2021-02-22T23:29:13.956Z",
       "important": false,
       "deleted": true
+    },
+    {
+      "id": 13,
+      "content": "Nueva nota",
+      "date": "2021-02-23T01:40:05.345Z",
+      "important": false,
+      "deleted": true
+    },
+    {
+      "id": 14,
+      "content": "Notaaaaa",
+      "date": "2021-02-23T01:47:26.096Z",
+      "important": true,
+      "deleted": true
     }
   ],
   "persons": [

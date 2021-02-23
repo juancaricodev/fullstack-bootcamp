@@ -10,8 +10,8 @@ const Notes = () => {
   const [showEmpty, setShowEmpty] = useState(false)
 
   useEffect(() => {
-    const eventHandler = (response) => {
-      setNotes(response.data)
+    const eventHandler = (initialNotes) => {
+      setNotes(initialNotes)
     }
 
     noteService
@@ -38,7 +38,7 @@ const Notes = () => {
     if (newNote !== '') {
       noteService
         .create(noteObject)
-        .then(res => setNotes(notes.concat(res.data)))
+        .then(newData => setNotes(notes.concat(newData)))
       setShowEmpty(false)
     } else {
       setShowEmpty(true)
@@ -58,8 +58,8 @@ const Notes = () => {
 
     noteService
       .update(id, changedNote)
-      .then((res) => {
-        setNotes(notes.map(note => (note.id !== id ? note : res.data)))
+      .then((newData) => {
+        setNotes(notes.map(note => (note.id !== id ? note : newData)))
       })
       .catch(err => console.error(`error while updating importance of id ${id} => ${err}`))
   }
@@ -71,8 +71,8 @@ const Notes = () => {
 
     noteService
       .update(id, deletedNote)
-      .then((res) => {
-        setNotes(notes.map(note => (note.id !== id ? note : res.data)))
+      .then((newData) => {
+        setNotes(notes.map(note => (note.id !== id ? note : newData)))
       })
       .catch(err => console.error(`error deleting note with id ${id} => ${err}`))
   }
