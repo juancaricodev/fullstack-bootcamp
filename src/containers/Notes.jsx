@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-// import axios from 'axios'
-
 import noteService from '@services/notes'
 import '@styles/containers/Notes.scss'
 
@@ -10,8 +8,6 @@ const Notes = () => {
   const [newNote, setNewNote] = useState('')
   const [showAll, setShowAll] = useState(true)
   const [showEmpty, setShowEmpty] = useState(false)
-
-  // const URL = 'http://localhost:5000/notes'
 
   useEffect(() => {
     const eventHandler = (response) => {
@@ -56,7 +52,6 @@ const Notes = () => {
   }
 
   const handleImportance = (id) => {
-    // const urlId = `${URL}/${id}`
     const note = notes.find(n => n.id === id)
 
     const changedNote = { ...note, important: !note.important }
@@ -70,7 +65,6 @@ const Notes = () => {
   }
 
   const handleDelete = (id) => {
-    // const urlId = `${URL}/${id}`
     const note = notes.find(n => n.id === id)
 
     const deletedNote = { ...note, deleted: true }
