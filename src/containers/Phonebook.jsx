@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
+import axios from 'axios'
+
 import NewPeople from '@components/phonebook/NewPeople'
 import Numbers from '@components/phonebook/Numbers'
 import NumbersFiltered from '@components/phonebook/NumbersFiltered'
@@ -16,8 +18,10 @@ const Phonebook = () => {
   const [match, setMatch] = useState(true)
   const [empty, setEmpty] = useState(false)
 
+  const URL = 'http://localhost:5000/persons'
+
   useEffect(() => {
-    const fetchingData = fetch('http://localhost:5000/persons')
+    const fetchingData = fetch(URL)
     fetchingData
       .then(res => res.json())
       .then(res => setPersons(res))
@@ -41,7 +45,10 @@ const Phonebook = () => {
     } else if (nameMatch) {
       alert(`${newPerson.name} is already added to phonebook`)
     } else {
-      setPersons([...persons, newPerson])
+      axios
+        .post(URL, newPerson)
+        .then(res => setPersons([...persons, res.data]))
+
       setFilteredData([])
       console.log(newPerson)
     }
