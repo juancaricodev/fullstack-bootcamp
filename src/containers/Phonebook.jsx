@@ -28,8 +28,10 @@ const Phonebook = () => {
     e.preventDefault()
 
     const newPerson = {
+      id: Math.max(...persons.map(person => person.id)) + 1,
       name: newName,
-      number: newPhone
+      number: newPhone,
+      deleted: false
     }
 
     const nameMatch = persons.find(person => person.name === newPerson.name)
@@ -41,6 +43,7 @@ const Phonebook = () => {
     } else {
       setPersons([...persons, newPerson])
       setFilteredData([])
+      console.log(newPerson)
     }
 
     setNewName('')
