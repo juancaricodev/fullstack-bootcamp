@@ -130,7 +130,7 @@
       "id": 6,
       "name": "Carlos",
       "number": "2345423",
-      "deleted": false
+      "deleted": true
     }
   ]
 }

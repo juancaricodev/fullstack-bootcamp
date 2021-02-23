@@ -6,9 +6,11 @@ const NumbersFiltered = ({ newSearch, filteredData, handleShowAll }) => {
       <h3>Numbers - filtered by: {newSearch}</h3>
       <ul>
         {filteredData.map(person => (
-          <li key={person.name}>
-            {person.name} {person.number ? `-  ${person.number}` : ''}
-          </li>
+          !person.deleted && (
+            <li key={person.name}>
+              {person.name} {person.number ? `-  ${person.number}` : ''}
+            </li>
+          )
         ))}
         <button type='button' onClick={handleShowAll}>Show All</button>
       </ul>
