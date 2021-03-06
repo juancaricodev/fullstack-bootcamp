@@ -55,8 +55,6 @@ const Phonebook = () => {
   }
 
   const deletePerson = (id, person) => {
-    // const person = persons.find(p => p.id === id)
-
     const deletedPerson = { ...person, deleted: true }
 
     phonebookService
@@ -71,6 +69,7 @@ const Phonebook = () => {
 
   const handleDelete = (id) => {
     const person = persons.find(p => p.id === id)
+
     window.confirm(`Delete id ${person.name}?`)
       && deletePerson(id, person)
   }
