@@ -54,7 +54,7 @@ const Phonebook = () => {
     setEmpty(false)
   }
 
-  const handleDelete = (id) => {
+  const deletePerson = (id) => {
     const person = persons.find(p => p.id === id)
 
     const deletedPerson = { ...person, deleted: true }
@@ -67,6 +67,11 @@ const Phonebook = () => {
           && setFilteredData(filteredData.map(person => (person.id !== id ? person : newData)))
       })
       .catch(err => console.log(`Error deleting person with id ${id} => ${err}`))
+  }
+
+  const handleDelete = (id) => {
+    window.confirm(`Delete id ${id}?`)
+      && deletePerson(id)
   }
 
   const handleNameChange = (e) => {
