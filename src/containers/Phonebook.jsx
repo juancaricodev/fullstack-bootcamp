@@ -24,6 +24,10 @@ const Phonebook = () => {
       .catch(err => console.error('Error =>', err))
   }, [])
 
+  const updateNumber = (nameMatch) => {
+    console.log('updating person\'s number', nameMatch)
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault()
 
@@ -41,7 +45,7 @@ const Phonebook = () => {
     } else if (nameMatch) {
       // WIP: update number
       window.confirm(`${newPerson.name} is already added to phonebook, replace the old number with a new one?`)
-        && console.log('updating person\'s number')
+        && updateNumber(nameMatch)
     } else {
       phonebookService
         .create(newPerson)
