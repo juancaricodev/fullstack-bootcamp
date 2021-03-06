@@ -37,8 +37,6 @@ const Phonebook = () => {
           && setFilteredData(filteredData.map(person => (person.id !== personId ? person : updated)))
       })
       .catch(err => console.error(`Error updating person ${updatedPerson.name} with error => ${err}`))
-
-    console.log('updating person\'s number', personId, updatedPerson)
   }
 
   const handleSubmit = (e) => {
@@ -56,7 +54,6 @@ const Phonebook = () => {
     if (newPerson.name === '' || newPerson.number === '') {
       alert('All fields should be filled')
     } else if (nameMatch) {
-      // WIP: update number
       window.confirm(`${newPerson.name} is already added to phonebook, replace the old number with a new one?`)
         && updateNumber(nameMatch, newPerson.number)
     } else {
