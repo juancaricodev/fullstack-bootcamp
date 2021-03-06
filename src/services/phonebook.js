@@ -12,10 +12,16 @@ const create = (newObject) => {
   return request.then(res => res.data)
 }
 
+const update = (id, newObject) => {
+  const url = `${URL}/${id}`
+  const request = axios.put(url, newObject)
+  return request.then(res => res.data)
+}
+
 const deleteId = (id, newObject) => {
   const url = `${URL}/${id}`
   const request = axios.put(url, newObject)
   return request.then(res => res.data)
 }
 
-export default { getAll, create, deleteId }
+export default { getAll, create, update, deleteId }

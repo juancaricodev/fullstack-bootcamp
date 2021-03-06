@@ -39,6 +39,7 @@ const Phonebook = () => {
     if (newPerson.name === '' || newPerson.number === '') {
       alert('All fields should be filled')
     } else if (nameMatch) {
+      // TODO: update number
       alert(`${newPerson.name} is already added to phonebook`)
     } else {
       phonebookService
