@@ -24,8 +24,21 @@ const Phonebook = () => {
       .catch(err => console.error('Error =>', err))
   }, [])
 
-  const updateNumber = (nameMatch) => {
-    console.log('updating person\'s number', nameMatch)
+  const updateNumber = (personObject, newNumber) => {
+    const personId = personObject.id
+
+    const updatedPerson = { ...personObject, number: newNumber }
+
+    phonebookService
+      .updateNumber(personId, updatedPerson)
+      .then((updated) => {
+        setPersons(persons.map(person => (person.id !== personId ? person : updated)))
+        filteredData.length > 0
+          && setFilteredData(filteredData.map(person => (person.id !== personId ? person : updated)))
+      })
+      .catch(err => console.error(`Error updating person ${updatedPerson.name} with error => ${err}`))
+
+    console.log('updating person\'s number', personId, updatedPerson)
   }
 
   const handleSubmit = (e) => {
@@ -45,7 +58,7 @@ const Phonebook = () => {
     } else if (nameMatch) {
       // WIP: update number
       window.confirm(`${newPerson.name} is already added to phonebook, replace the old number with a new one?`)
-        && updateNumber(nameMatch)
+        && updateNumber(nameMatch, newPerson.number)
     } else {
       phonebookService
         .create(newPerson)
