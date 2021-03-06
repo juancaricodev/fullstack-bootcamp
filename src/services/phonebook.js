@@ -12,7 +12,7 @@ const create = (newObject) => {
   return request.then(res => res.data)
 }
 
-const update = (id, newObject) => {
+const updateNumber = (id, newObject) => {
   const url = `${URL}/${id}`
   const request = axios.put(url, newObject)
   return request.then(res => res.data)
@@ -24,4 +24,4 @@ const deleteId = (id, newObject) => {
   return request.then(res => res.data)
 }
 
-export default { getAll, create, update, deleteId }
+export default { getAll, create, updateNumber, deleteId }
