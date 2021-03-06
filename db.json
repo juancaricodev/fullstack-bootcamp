@@ -128,7 +128,7 @@
       "id": 5,
       "name": "Camilo",
       "number": "12342314",
-      "deleted": true
+      "deleted": false
     },
     {
       "id": 6,
